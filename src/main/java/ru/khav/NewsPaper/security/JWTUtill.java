@@ -16,13 +16,13 @@ public class JWTUtill {
     @Value("${jwt_secret}")
     private String secret;
 
-    public String generateToken(String username)
+    public String generateToken(String email)
     {
         Date expirationDate= Date.from(ZonedDateTime.now().plusMinutes(60).toInstant());
 
         return JWT.create()
                 .withSubject("user details")
-                .withClaim("name",username)
+                .withClaim("email",email)
                 .withIssuedAt(new Date())
                 .withIssuer("Ulyashka")
                 .withExpiresAt(expirationDate)
@@ -37,7 +37,7 @@ public class JWTUtill {
                 .build();
 
         DecodedJWT jwt= verifier.verify(Token);
-        return jwt.getClaim("name").asString();
+        return jwt.getClaim("email").asString();
 
     }
 }

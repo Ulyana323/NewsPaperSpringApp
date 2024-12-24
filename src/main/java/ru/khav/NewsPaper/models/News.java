@@ -1,6 +1,7 @@
 package ru.khav.NewsPaper.models;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
@@ -28,14 +29,10 @@ public class News {
     private String text;
 
     @Column(name = "created_at")
+    @CreationTimestamp
     private LocalDateTime created_at;
 
-    @ManyToMany
-    @JoinTable(name = "news_n_comments",
-            joinColumns = @JoinColumn(name = "news_id"),
-            inverseJoinColumns = @JoinColumn(name = "comment_id")
-
-    )
+   @OneToMany(mappedBy = "news",fetch = FetchType.EAGER)
     private List<Comment> comments;
 
 

@@ -21,6 +21,9 @@ public class Person {
     @Column(name="name")
     private String name;
 
+    @Column(name="lastname")
+    private String lastname;
+
 
     @Column(name="email")
     private String email;

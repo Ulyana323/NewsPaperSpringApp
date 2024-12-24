@@ -2,30 +2,30 @@ package ru.khav.NewsPaper.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import ru.khav.NewsPaper.DTO.PersonDTO;
-import ru.khav.NewsPaper.models.Person;
+import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
+import ru.khav.NewsPaper.DTO.PersonRegistrationDTO;
 import ru.khav.NewsPaper.security.JWTUtill;
+import ru.khav.NewsPaper.services.AuthorizeService;
 import ru.khav.NewsPaper.services.RegistrationService;
 import ru.khav.NewsPaper.utill.ErrorResponse;
-import ru.khav.NewsPaper.utill.NotUniqueNameException;
-import ru.khav.NewsPaper.utill.PersonValidator;
+import ru.khav.NewsPaper.utill.NotUniqueEmailException;
+
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/auth")
 @RestController
+@ControllerAdvice
 public class AuthController {
 
     @Autowired
@@ -36,49 +36,40 @@ public class AuthController {
 
     @Autowired
     JWTUtill jwtUtill;
-
     @Autowired
     AuthenticationManager authenticationManager;
     @Autowired
-    PersonValidator personValidator;
+    AuthorizeService authorizeService;
+
+
 
     @PostMapping("/registration")
-    public ResponseEntity<String> create(@RequestBody @Valid PersonDTO personDTO,BindingResult bindingResult) throws NotUniqueNameException {
-        personValidator.validate(personDTO,bindingResult);
+    public ResponseEntity<String> create(@RequestBody @Valid PersonRegistrationDTO personRegistrationDTO,BindingResult bindingResult) throws NotUniqueEmailException {
         if(bindingResult.hasErrors())
         {
-            return new ResponseEntity<>("incorrect input data",HttpStatus.BAD_REQUEST);
+            List<ObjectError> allErrors = bindingResult.getAllErrors();
+            StringBuilder str=new StringBuilder();
+            for (ObjectError error : allErrors) {
+                str.append(error.getDefaultMessage()).append(";");
+            }
+            return new ResponseEntity<>(str.toString(),HttpStatus.BAD_REQUEST);
         }
-        registrationService.registr(modelMapper.map(personDTO, Person.class));
-        String token = jwtUtill.generateToken(personDTO.getName());
 
-        return new ResponseEntity<>(token, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(registrationService.registr(personRegistrationDTO), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody @Valid PersonDTO personDTO, BindingResult bindingResult) {
-
-        personValidator.validate(personDTO,bindingResult);
-        if(bindingResult.hasErrors())
-        {
-            return new ResponseEntity<>("incorrect input data",HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> login(@RequestBody @Valid PersonAuthorizationDTO personAuthorizationDTO, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            List<ObjectError> allErrors = bindingResult.getAllErrors();
+            StringBuilder str=new StringBuilder();
+            for (ObjectError error : allErrors) {
+                str.append(error.getDefaultMessage()).append(";");
+            }
+            return new ResponseEntity<>(str.toString(),HttpStatus.BAD_REQUEST);
         }
-
-
-        UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(personDTO.getName(), personDTO.getPassword());
-
-        try {
-           Authentication authentication= authenticationManager.authenticate(authenticationToken);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        } catch (BadCredentialsException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-
-        String tokenLogged = jwtUtill.generateToken(personDTO.getName());
-        return new ResponseEntity<>(tokenLogged, HttpStatus.ACCEPTED);
-
-    }
+        return new ResponseEntity<>(authorizeService.Authorize(personAuthorizationDTO),
+                HttpStatus.OK);}
 
     @GetMapping("/logout")
     public ResponseEntity<HttpStatus> logout()
@@ -88,10 +79,10 @@ public class AuthController {
 
     }
 
-    @ExceptionHandler
-    public ResponseEntity<ErrorResponse>exception(NotUniqueNameException e)
+    @ExceptionHandler(NotUniqueEmailException.class)
+    public ResponseEntity<ErrorResponse>exception(Exception e)
     {
-        ErrorResponse response= new ErrorResponse("this name not unique",
+        ErrorResponse response= new ErrorResponse("this email not unique",
                 System.currentTimeMillis());
 
         return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);

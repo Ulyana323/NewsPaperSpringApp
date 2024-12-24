@@ -17,8 +17,10 @@ public class NewsValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
 
-        NewsDTO news=(NewsDTO) target;
+        NewsDTO news = (NewsDTO) target;
         // Проверка title
+
+
         if (news.getTitle() == null || news.getTitle().isEmpty()) {
             errors.rejectValue("title", "field.required", "Title is required");
         }

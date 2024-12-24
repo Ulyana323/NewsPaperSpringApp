@@ -40,4 +40,12 @@ public class PersonService implements UserDetailsService {
     {
         return personRepo.findByName(person.getName());
     }
+    public Optional<Person> findByEmail(Person person)
+    {
+        return personRepo.findByEmail(person.getEmail());
+    }
+    public Person findByEmail(String email)
+    {
+        return personRepo.findByEmail(email).get();
+    }
 }

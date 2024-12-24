@@ -1,5 +1,8 @@
 package ru.khav.NewsPaper.models;
 
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -7,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name="comments")
+@Data
 public class Comment {
 
     @Id
@@ -14,6 +18,7 @@ public class Comment {
     @Column(name="id")
     private int id;
 
+    @CreationTimestamp
     @Column(name="created_at")
     private Date createdAt;
 
@@ -24,7 +29,8 @@ public class Comment {
     @JoinColumn(name="user_id",referencedColumnName = "id")
     private Person owner;
 
-    @ManyToMany(mappedBy = "comments",fetch = FetchType.EAGER)
-    private List<News> CommentNews;
+    @ManyToOne
+    @JoinColumn(name="news_id",referencedColumnName = "id")
+    private News news;
 
 }
