@@ -61,7 +61,7 @@ public class MainPageController {
         return new ResponseEntity<>("nok",HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping()//при нажатии "еще комметнарии" в теле запроса передается номер стр
+    @GetMapping("/showComm")//при нажатии "еще комметнарии" в теле запроса передается номер стр
     public List<Comment> ShowComments(@RequestParam(required = false,defaultValue = "0") int page){
        return commentService.ShowComments(page);
     }
