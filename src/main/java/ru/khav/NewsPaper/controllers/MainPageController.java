@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.khav.NewsPaper.DTO.CommentDTO;
 import ru.khav.NewsPaper.DTO.NewsDTO;
+import ru.khav.NewsPaper.models.Comment;
 import ru.khav.NewsPaper.models.News;
 import ru.khav.NewsPaper.services.CommentService;
 import ru.khav.NewsPaper.services.NewsService;
@@ -58,6 +59,11 @@ public class MainPageController {
         return new ResponseEntity<>("ok",HttpStatus.OK);}
 
         return new ResponseEntity<>("nok",HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping()//при нажатии "еще комметнарии" в теле запроса передается номер стр
+    public List<Comment> ShowComments(@RequestParam(required = false,defaultValue = "0") int page){
+       return commentService.ShowComments(page);
     }
 
     @PostMapping("/addNew")

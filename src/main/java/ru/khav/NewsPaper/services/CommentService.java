@@ -2,6 +2,8 @@ package ru.khav.NewsPaper.services;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.khav.NewsPaper.DTO.CommentDTO;
 import ru.khav.NewsPaper.models.Comment;
 import ru.khav.NewsPaper.repositories.CommentRepo;
+
+import java.util.List;
 
 @Service
 public class CommentService {
@@ -38,4 +42,17 @@ public class CommentService {
         }
         return "nop";
     }
+
+    public List<Comment> ShowComments(int page)
+    {
+        if(page>=1) {//чтобы нельзя было открыть страницу, где нет комментов
+            if(commentRepo.findAll().size() <= (page * 3)){
+                return commentRepo.findAll(PageRequest.of(0,3, Sort.by("createdAt"))).getContent();
+            }
+        }
+
+        return commentRepo.findAll(PageRequest.of(page,3, Sort.by("createdAt"))).getContent();
+    }
+
+
 }
