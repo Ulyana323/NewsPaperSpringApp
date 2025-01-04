@@ -10,11 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.khav.NewsPaper.DTO.CommentDTO;
+import ru.khav.NewsPaper.DTO.CommentShowDTO;
 import ru.khav.NewsPaper.DTO.NewsDTO;
+import ru.khav.NewsPaper.DTO.NewsShowDTO;
 import ru.khav.NewsPaper.models.Comment;
 import ru.khav.NewsPaper.models.News;
 import ru.khav.NewsPaper.services.CommentService;
 import ru.khav.NewsPaper.services.NewsService;
+import ru.khav.NewsPaper.utill.CommentSorting;
 import ru.khav.NewsPaper.utill.CommentValidator;
 import ru.khav.NewsPaper.utill.ErrorResponse;
 import ru.khav.NewsPaper.utill.NewsValidator;
@@ -34,20 +37,30 @@ public class MainPageController {
     NewsValidator newsValidator;
     @Autowired
     CommentValidator commentValidator;
-
     @Autowired
     ModelMapper modelMapper;
     @Autowired
     CommentService commentService;
+    @Autowired
+    CommentSorting commentSorting;
 
-    @GetMapping()
-    public ResponseEntity<List<News>> showNews() {
-        return new ResponseEntity<>(newsService.showNews(), HttpStatus.OK);
+    @GetMapping("/{page}")
+    public ResponseEntity<List<NewsShowDTO>> showNews(@PathVariable("page") int page) {
+        int pag=page<=0?0:page;
+        List<NewsShowDTO> lst= newsService.showNews(pag);
+        return new ResponseEntity<>(lst, HttpStatus.OK);
+    }
+    @PostMapping("/{page}")
+    public ResponseEntity<Integer> LikeNewsAndShow(@PathVariable("page") int page,
+                                                      @RequestParam(required = true,defaultValue = "false") boolean like ) {
+        int pag=page<=0?0:page;
+        Integer response=newsService.showNewsAndLikeit(pag,like);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping("/addComment/{id}")
+    @PostMapping("/addComment")
     public ResponseEntity<?> addComment(@RequestBody @Valid CommentDTO commentDTO,
-                                        @PathVariable("id") int NewsId,
+                                       @RequestParam("title") String NewsTitle,
                                         BindingResult bindingResult) {
         commentValidator.validate(commentDTO,bindingResult);
         if(bindingResult.hasErrors())
@@ -55,15 +68,20 @@ public class MainPageController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        if(commentService.addComment(commentDTO,NewsId).equals("yep")){
+        if(commentService.addComment(commentDTO,//выборка новости из бд по id, а выборка id по заголовку, который
+                //должен быть получен с клиента
+                newsService.FindByTitle(NewsTitle).getId()).equals("yep")){
         return new ResponseEntity<>("ok",HttpStatus.OK);}
 
         return new ResponseEntity<>("nok",HttpStatus.BAD_REQUEST);
     }
 
+
+
     @GetMapping("/showComm")//при нажатии "еще комметнарии" в теле запроса передается номер стр
-    public List<Comment> ShowComments(@RequestParam(required = false,defaultValue = "0") int page){
-       return commentService.ShowComments(page);
+    public List<CommentShowDTO> ShowComments(@RequestParam(required = false,defaultValue = "0") int page,
+                                             @RequestParam(required = true,defaultValue = "title") String title){
+       return commentSorting.ShowComments(page,title);
     }
 
     @PostMapping("/addNew")

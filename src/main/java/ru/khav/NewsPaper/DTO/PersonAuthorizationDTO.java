@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class PersonAuthorizationDTO {
 
-    @UniqueElements(message = "this email already exists")
+
     @JsonProperty("email")
     @NotNull(message = "Full it, please")
     private String email;

@@ -36,7 +36,7 @@ public String registr(PersonRegistrationDTO person)
     {
         throw new NotUniqueEmailException();
     }
-    person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
+    personToSave.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
 personService.save(personToSave);
 return jwtUtill.generateToken(personToSave.getEmail());
 

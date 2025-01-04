@@ -5,4 +5,5 @@
 
     <include file="change-user-fields.xml" relativeToChangelogFile="true"/>
 
+
 </databaseChangeLog>

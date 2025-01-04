@@ -1,6 +1,8 @@
 package ru.khav.NewsPaper.controllers;
 
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
 import ru.khav.NewsPaper.DTO.PersonRegistrationDTO;
 import ru.khav.NewsPaper.security.JWTUtill;
 import ru.khav.NewsPaper.services.AuthorizeService;
+import ru.khav.NewsPaper.services.NewsService;
 import ru.khav.NewsPaper.services.RegistrationService;
 import ru.khav.NewsPaper.utill.ErrorResponse;
 import ru.khav.NewsPaper.utill.NotUniqueEmailException;
@@ -40,11 +43,11 @@ public class AuthController {
     AuthenticationManager authenticationManager;
     @Autowired
     AuthorizeService authorizeService;
-
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
 
     @PostMapping("/registration")
-    public ResponseEntity<String> create(@RequestBody @Valid PersonRegistrationDTO personRegistrationDTO,BindingResult bindingResult) throws NotUniqueEmailException {
+    public ResponseEntity<String> c(@RequestBody @Valid PersonRegistrationDTO personRegistrationDTO,BindingResult bindingResult) throws NotUniqueEmailException {
         if(bindingResult.hasErrors())
         {
             List<ObjectError> allErrors = bindingResult.getAllErrors();
@@ -58,8 +61,10 @@ public class AuthController {
         return new ResponseEntity<>(registrationService.registr(personRegistrationDTO), HttpStatus.ACCEPTED);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody @Valid PersonAuthorizationDTO personAuthorizationDTO, BindingResult bindingResult) {
+        logger.info("HERE!");
         if(bindingResult.hasErrors()) {
             List<ObjectError> allErrors = bindingResult.getAllErrors();
             StringBuilder str=new StringBuilder();
@@ -68,8 +73,10 @@ public class AuthController {
             }
             return new ResponseEntity<>(str.toString(),HttpStatus.BAD_REQUEST);
         }
+        logger.info("oeee");
         return new ResponseEntity<>(authorizeService.Authorize(personAuthorizationDTO),
-                HttpStatus.OK);}
+                HttpStatus.OK);
+    }
 
     @GetMapping("/logout")
     public ResponseEntity<HttpStatus> logout()

@@ -19,13 +19,16 @@ public class Person {
     private int id;
 
     @Column(name="name")
+    @NotNull
     private String name;
 
     @Column(name="lastname")
+    @NotNull
     private String lastname;
 
 
     @Column(name="email")
+    @NotNull
     private String email;
 
     @Column(name="password")

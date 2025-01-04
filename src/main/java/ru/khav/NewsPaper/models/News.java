@@ -32,8 +32,13 @@ public class News {
     @CreationTimestamp
     private LocalDateTime created_at;
 
+    @Column(name = "isliked")
+    private boolean isLiked;
+
    @OneToMany(mappedBy = "news",fetch = FetchType.EAGER)
     private List<Comment> comments;
+
+
 
 
 }

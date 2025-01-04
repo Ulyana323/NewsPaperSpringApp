@@ -33,4 +33,5 @@ public class Comment {
     @JoinColumn(name="news_id",referencedColumnName = "id")
     private News news;
 
+
 }

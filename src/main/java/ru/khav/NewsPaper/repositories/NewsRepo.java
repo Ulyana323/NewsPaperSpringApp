@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface NewsRepo extends JpaRepository<News,Integer> {
 
    List<News> findAll();
+
+   News findByTitle(String title);
 }

@@ -18,8 +18,8 @@ public class PersonService implements UserDetailsService {
     @Autowired
     private PersonRepo personRepo;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Person> personOptional= personRepo.findByName(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<Person> personOptional= personRepo.findByEmail(email);
 
         if(!personOptional.isPresent())
         {

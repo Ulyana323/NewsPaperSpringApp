@@ -3,17 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>1300</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1511</IntrospectionStateNumber>
       <ServerVersion>17.0</ServerVersion>
-      <StartupTime>1734768721</StartupTime>
+      <StartupTime>1735891978</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -809,7 +801,7 @@ false Zulu
 14650||10|C|G
 14650||-9223372036854775808|U|G
 14650||10|U|G</Grants>
-      <IntrospectionStateNumber>1300</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1511</IntrospectionStateNumber>
       <ObjectId>24934</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4256,8 +4248,8 @@ false Zulu
     <schema id="270" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1300</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-12-21.09:46:46</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1511</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-01-03.09:42:54</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4306,13 +4298,13 @@ false Zulu
     </table>
     <table id="277" parent="270" name="news">
       <ObjectId>25006</ObjectId>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1488</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="278" parent="270" name="users">
       <ObjectId>24956</ObjectId>
-      <StateNumber>1215</StateNumber>
+      <StateNumber>1348</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4614,7 +4606,14 @@ false Zulu
       <StateNumber>1214</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="321" parent="278" name="users_pkey">
+    <column id="321" parent="278" name="lastname">
+      <DasType>varchar|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>1348</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="322" parent="278" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24961</ObjectId>
@@ -4623,7 +4622,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="322" parent="278" name="name_unigue">
+    <index id="323" parent="278" name="name_unigue">
       <ColNames>name</ColNames>
       <ObjectId>25058</ObjectId>
       <StateNumber>1235</StateNumber>
@@ -4633,17 +4632,34 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="323" parent="278" name="users_pkey">
+    <index id="324" parent="278" name="users_email_key">
+      <ColNames>email</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>25122</ObjectId>
+      <StateNumber>1348</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="325" parent="278" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24962</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1214</StateNumber>
       <UnderlyingIndexId>24961</UnderlyingIndexId>
     </key>
-    <key id="324" parent="278" name="name_unigue">
+    <key id="326" parent="278" name="name_unigue">
       <ObjectId>25059</ObjectId>
       <StateNumber>1235</StateNumber>
       <UnderlyingIndexId>25058</UnderlyingIndexId>
+    </key>
+    <key id="327" parent="278" name="users_email_key">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>25123</ObjectId>
+      <StateNumber>1348</StateNumber>
+      <UnderlyingIndexId>25122</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

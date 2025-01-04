@@ -10,9 +10,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.khav.NewsPaper.DTO.CommentDTO;
+import ru.khav.NewsPaper.DTO.CommentShowDTO;
 import ru.khav.NewsPaper.models.Comment;
+import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.repositories.CommentRepo;
+import ru.khav.NewsPaper.utill.CommentSorting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,6 +34,7 @@ public class CommentService {
     NewsService newsService;
 
 
+
     @Transactional
     public String addComment(CommentDTO commentDTO,int NewsId) {
         Comment comment = modelMapper.map(commentDTO, Comment.class);
@@ -41,17 +46,6 @@ public class CommentService {
             return "yep";
         }
         return "nop";
-    }
-
-    public List<Comment> ShowComments(int page)
-    {
-        if(page>=1) {//чтобы нельзя было открыть страницу, где нет комментов
-            if(commentRepo.findAll().size() <= (page * 3)){
-                return commentRepo.findAll(PageRequest.of(0,3, Sort.by("createdAt"))).getContent();
-            }
-        }
-
-        return commentRepo.findAll(PageRequest.of(page,3, Sort.by("createdAt"))).getContent();
     }
 
 
