@@ -14,6 +14,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
 import ru.khav.NewsPaper.DTO.PersonRegistrationDTO;
+import ru.khav.NewsPaper.models.BlackListTokens;
 import ru.khav.NewsPaper.security.JWTUtill;
 import ru.khav.NewsPaper.services.AuthorizeService;
 import ru.khav.NewsPaper.services.NewsService;
@@ -43,6 +44,8 @@ public class AuthController {
     AuthenticationManager authenticationManager;
     @Autowired
     AuthorizeService authorizeService;
+    @Autowired
+    BlackListTokens blackListTokens;
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
 
@@ -61,7 +64,7 @@ public class AuthController {
         return new ResponseEntity<>(registrationService.registr(personRegistrationDTO), HttpStatus.ACCEPTED);
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody @Valid PersonAuthorizationDTO personAuthorizationDTO, BindingResult bindingResult) {
         logger.info("HERE!");
@@ -82,6 +85,7 @@ public class AuthController {
     public ResponseEntity<HttpStatus> logout()
     {
         SecurityContextHolder.clearContext();
+        blackListTokens.addBlackListToken(//todo);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
