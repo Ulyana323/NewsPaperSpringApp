@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.khav.NewsPaper.Convertors.CommentConverter;
@@ -77,8 +79,13 @@ public class NewsService {
     }
 
     @Transactional
-    public void saveNews(News news) {
-        newsRepo.save(news);
+    public int saveNews(News news) {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth!=null) {
+            newsRepo.save(news);
+            return 1;
+        }else return 0;
     }
 
     public News findbyId(int id)

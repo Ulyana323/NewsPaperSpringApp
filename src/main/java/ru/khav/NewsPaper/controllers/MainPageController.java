@@ -86,16 +86,13 @@ public class MainPageController {
     }
 
     @PostMapping("/addNew")
-    public ResponseEntity<?> addNews(@RequestBody @Valid NewsDTO newsDTO, BindingResult bindingResult) {
+    public ResponseEntity<?> addNews(@RequestBody @Valid NewsDTO newsDTO
+            , BindingResult bindingResult) {
         newsValidator.validate(newsDTO, bindingResult);
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new ErrorResponse("incorrect format of News", System.currentTimeMillis()), HttpStatus.BAD_REQUEST);
         }
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (authentication != null && authentication.isAuthenticated()) {
-
-            newsService.saveNews(modelMapper.map(newsDTO, News.class));
+           if( newsService.saveNews(modelMapper.map(newsDTO, News.class))==1){
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } else return new ResponseEntity<>("Not Authorized", HttpStatus.BAD_REQUEST);
 

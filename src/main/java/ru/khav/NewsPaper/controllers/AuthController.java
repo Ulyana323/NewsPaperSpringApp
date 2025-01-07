@@ -14,6 +14,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
 import ru.khav.NewsPaper.DTO.PersonRegistrationDTO;
+import ru.khav.NewsPaper.config.JWTFilter;
 import ru.khav.NewsPaper.models.BlackListTokens;
 import ru.khav.NewsPaper.security.JWTUtill;
 import ru.khav.NewsPaper.services.AuthorizeService;
@@ -44,8 +45,7 @@ public class AuthController {
     AuthenticationManager authenticationManager;
     @Autowired
     AuthorizeService authorizeService;
-    @Autowired
-    BlackListTokens blackListTokens;
+
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
 
@@ -81,11 +81,14 @@ public class AuthController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/logout")
-    public ResponseEntity<HttpStatus> logout()
+    @GetMapping("/logout")//при выходе текущий токен польз добавляется в черный список
+    public ResponseEntity<HttpStatus> logout( @RequestHeader(value = "Authorization") String authorizationHeader)
     {
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ") ) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        jwtUtill.addTokenToBlackList(authorizationHeader);
         SecurityContextHolder.clearContext();
-        blackListTokens.addBlackListToken(//todo);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }

@@ -1,5 +1,6 @@
 package ru.khav.NewsPaper.models;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
@@ -10,7 +11,8 @@ public class BlackListTokens {
     private final Set<String> blacklistedTokens = new HashSet<>();
 
     public void addBlackListToken(String token) {
-        blacklistedTokens.add(token);
+        String jwt = token.substring(7);
+        blacklistedTokens.add(jwt);
     }
 
     public boolean isTokenBlacklisted(String token) {

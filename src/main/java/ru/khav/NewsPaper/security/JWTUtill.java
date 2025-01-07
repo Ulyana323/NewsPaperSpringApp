@@ -7,6 +7,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import ru.khav.NewsPaper.models.BlackListTokens;
 
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -15,6 +16,12 @@ import java.util.Date;
 public class JWTUtill {
     @Value("${jwt_secret}")
     private String secret;
+
+    public JWTUtill(BlackListTokens blackListTokens) {
+        this.blackListTokens = blackListTokens;
+    }
+
+    private final BlackListTokens blackListTokens;
 
     public String generateToken(String email)
     {
@@ -31,6 +38,10 @@ public class JWTUtill {
 
     public String validateTokenAndRetriveClaim(String Token) throws JWTVerificationException
     {
+        if(blackListTokens.isTokenBlacklisted(Token))
+        {
+            throw new JWTVerificationException("this token in BlackList");
+        }
         JWTVerifier verifier=JWT.require(Algorithm.HMAC256(secret))
                 .withSubject("user details")
                 .withIssuer("Ulyashka")
@@ -39,5 +50,10 @@ public class JWTUtill {
         DecodedJWT jwt= verifier.verify(Token);
         return jwt.getClaim("email").asString();
 
+    }
+
+    public void addTokenToBlackList(String Token)
+    {
+        blackListTokens.addBlackListToken(Token);
     }
 }
