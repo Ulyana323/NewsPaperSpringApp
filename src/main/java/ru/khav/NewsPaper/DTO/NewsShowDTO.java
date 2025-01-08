@@ -3,7 +3,8 @@ package ru.khav.NewsPaper.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,5 +18,7 @@ public class NewsShowDTO {
 
     private List<CommentShowDTO> Comments;
     private boolean isLiked;
+
+   private LocalDateTime createdAt;
 
 }

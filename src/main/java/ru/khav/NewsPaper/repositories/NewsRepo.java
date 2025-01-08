@@ -11,6 +11,8 @@ import java.util.Optional;
 public interface NewsRepo extends JpaRepository<News,Integer> {
 
    List<News> findAll();
+    Optional<List<News>> findAllByOrderByCreatedAtDesc();
 
-   News findByTitle(String title);
+
+  Optional<News> findByTitle(String title);
 }

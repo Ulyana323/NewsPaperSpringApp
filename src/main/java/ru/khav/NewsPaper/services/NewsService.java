@@ -18,6 +18,8 @@ import ru.khav.NewsPaper.models.News;
 import ru.khav.NewsPaper.repositories.NewsRepo;
 
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.chrono.ChronoLocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -35,29 +37,37 @@ public class NewsService {
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
     public List<NewsShowDTO> showNews(int page)
     {
-        List<News> news= newsRepo.findAll(Sort.by("id"));
-        if(page>news.size()-1){
-            page=0;
-        }
-        news=newsRepo.findAll(PageRequest.of(page,1)).getContent();
-        List<NewsShowDTO> NewsShowDTOS=new ArrayList<>();
-        for(News n:news)
+        List<News> news=newsRepo.findAllByOrderByCreatedAtDesc().orElse(null);
+        if(news==null)
         {
-            NewsShowDTOS.add(new NewsShowDTO(n.getTitle(),n.getText(),
-                    CommentListTransform(n.getComments()),n.isLiked()));
+            return null;
         }
-        return NewsShowDTOS;
+        if (page == 0) {
+            LocalDateTime nowDate = LocalDateTime.now();
+            news = news.stream()
+                    .filter(c -> c.getCreatedAt().isAfter(nowDate.minusHours(24)))
+                    .limit(3)
+                    .collect(Collectors.toList());
+        } else {
+            news = newsRepo.findAll(PageRequest.of(page, 3, Sort.by("createdAt").descending())).toList(); // Используйте правильное имя поля
+        }
+
+        return news.stream()
+                .map(n -> new NewsShowDTO(n.getTitle(), n.getText(),
+                        CommentListTransform(n.getComments()), n.isLiked(), n.getCreatedAt()))
+                .collect(Collectors.toList());
 
     }
     @Transactional
-    public Integer showNewsAndLikeit(int page,boolean like)
+    public Integer showNewsAndLikeit(String title,boolean like)
     {
-        List<News> news= newsRepo.findAll();
-        if(page>news.size()-1){
-           return 0;
+        News NewsToLike = FindByTitle(title);
+        if(NewsToLike==null)
+        {
+            return 0;
         }
-        //int id=
-       newsRepo.findAll(PageRequest.of(page,1)).getContent().get(0).setLiked(like);
+     //  newsRepo.findByTitle(title).setLiked(like);
+        NewsToLike.setLiked(like);
         return 1;
 
     }
@@ -95,7 +105,7 @@ public class NewsService {
 
 
     public News FindByTitle(String title){
-        return newsRepo.findByTitle(title);}
+        return newsRepo.findByTitle(title).orElse(null);}
 
 
 

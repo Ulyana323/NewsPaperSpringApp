@@ -34,4 +34,14 @@ public class Comment {
     private News news;
 
 
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", createdAt=" + createdAt +
+                ", text='" + text + ", ownerId=" + (owner != null ? owner.getId() : "null") + //  ID владельца
+                ", newsId=" + (news != null ? news.getId() : "null") + //  ID новости
+                '}';
+    }
+
 }

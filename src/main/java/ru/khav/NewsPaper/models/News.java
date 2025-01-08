@@ -30,7 +30,7 @@ public class News {
 
     @Column(name = "created_at")
     @CreationTimestamp
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @Column(name = "isliked")
     private boolean isLiked;
@@ -38,6 +38,7 @@ public class News {
    @OneToMany(mappedBy = "news",fetch = FetchType.EAGER)
     private List<Comment> comments;
 
+   //todo количество лайков
 
 
 

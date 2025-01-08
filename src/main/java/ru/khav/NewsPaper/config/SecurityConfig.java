@@ -1,5 +1,7 @@
 package ru.khav.NewsPaper.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +21,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import ru.khav.NewsPaper.services.AuthorizeService;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -35,20 +38,19 @@ public class SecurityConfig {
     @Bean
     JWTFilter jwtFilter(){return new JWTFilter();}
 
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        //запросы, игнорируемые csrf
-        Set<String> csrfAllowedMethods = Stream.of("GET", "HEAD", "TRACE", "OPTIONS").collect(Collectors.toSet());
-        //для хранения токенов на серверной стороне приложения
-        CsrfTokenRepository csrfTokenRepository = new HttpSessionCsrfTokenRepository();
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests((authorize) -> authorize
-                        .anyRequest().permitAll()
-                )
+               //при неудачной попытке входа пользователь будет пренаправлен обратно на страницу входа
+                //.formLogin().loginPage("/auth/login").permitAll().and()
+                .authorizeRequests()
+                .antMatchers("/News/showComm").permitAll()
+                .antMatchers("/News/show/**").permitAll()
+               .and()
                 .cors(configurer->{
                     //источник конфигураций корс
                     UrlBasedCorsConfigurationSource corsConfigurationSource=new UrlBasedCorsConfigurationSource();
@@ -80,7 +82,15 @@ public class SecurityConfig {
 
                 })
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling(exceptionHandling ->
+                        exceptionHandling
+                                .accessDeniedHandler((request, response, e) ->
+                                        // Логгировние ошибок доступа
+                                        LOGGER.error(e.getMessage(), e))
+                                .authenticationEntryPoint((request, response, e) ->
+                                        // Логгировние ошибок аутентификации
+                                        LOGGER.error(e.getMessage(), e)));
 
         return http.build();
     }

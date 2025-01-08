@@ -45,21 +45,22 @@ public class MainPageController {
     @Autowired
     CommentSorting commentSorting;
 
-    @GetMapping("/{page}")
+    @GetMapping("/show/{page}")//метод ожидает страницу, на страницу макс 3 новости, но если
+    //страница=0 то есть первая то новости только последних 24 часов отображаются, даже если их меньше 3
     public ResponseEntity<List<NewsShowDTO>> showNews(@PathVariable("page") int page) {
-        int pag=page<=0?0:page;
+        int pag=page<=0?0:page;//чтобы избежать отрицательных значений
         List<NewsShowDTO> lst= newsService.showNews(pag);
         return new ResponseEntity<>(lst, HttpStatus.OK);
     }
-    @PostMapping("/{page}")
-    public ResponseEntity<Integer> LikeNewsAndShow(@PathVariable("page") int page,
+    @PostMapping("/like")
+    //метод ожидает заголовок новости (он в бд уникален) и значение лайка(поставлен/снят)
+    public ResponseEntity<Integer> LikeNewsAndShow(@RequestParam String title,
                                                       @RequestParam(required = true,defaultValue = "false") boolean like ) {
-        int pag=page<=0?0:page;
-        Integer response=newsService.showNewsAndLikeit(pag,like);
+        Integer response=newsService.showNewsAndLikeit(title,like);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping("/addComment")
+    @PostMapping("/addComment")//метод принимает текст комментария и заголовок для какой новости коммент
     public ResponseEntity<?> addComment(@RequestBody @Valid CommentDTO commentDTO,
                                        @RequestParam("title") String NewsTitle,
                                         BindingResult bindingResult) {
