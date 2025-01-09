@@ -1,5 +1,6 @@
 package ru.khav.NewsPaper.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Table(name="users")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Person {
 
     @Id

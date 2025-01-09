@@ -35,11 +35,6 @@ public class PersonService implements UserDetailsService {
     {
         personRepo.save(person);
     }
-
-    public Optional<Person> findByName(Person person)
-    {
-        return personRepo.findByName(person.getName());
-    }
     public Optional<Person> findByEmail(Person person)
     {
         return personRepo.findByEmail(person.getEmail());

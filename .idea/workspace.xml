@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f7fe53-9ea5-4091-bd04-94c6a41c6843" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/add-constraint-title-news.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/change-type-of-date-news.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/PersonServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/NewsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/NewsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +58,9 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "JUnit.NewsPaperApplicationTests.executor": "Run",
+    "JUnit.PersonServiceTest.TestingFindByEmailPersonInMethod.executor": "Run",
+    "JUnit.PersonServiceTest.TestingSaveMethod.executor": "Run",
+    "JUnit.PersonServiceTest.testSavePerson.executor": "Run",
     "Maven.NewsPaper [clean].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -99,7 +95,7 @@
       <recent name="D:\JAVA\NewsPaper\src\main\resources\changelog\v1" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.NewsPaperApplication">
+  <component name="RunManager" selected="JUnit.PersonServiceTest.testSavePerson">
     <configuration name="NewsPaperApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewsPaper" />
       <extension name="coverage">
@@ -115,6 +111,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PersonServiceTest.TestingFindByEmailPersonInMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewsPaper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.khav.NewsPaper.ServicesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.PersonServiceTest" />
+      <option name="METHOD_NAME" value="TestingFindByEmailPersonInMethod" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonServiceTest.TestingSaveMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewsPaper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.khav.NewsPaper.ServicesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.PersonServiceTest" />
+      <option name="METHOD_NAME" value="TestingSaveMethod" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonServiceTest.testSavePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewsPaper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.khav.NewsPaper.ServicesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.PersonServiceTest" />
+      <option name="METHOD_NAME" value="testSavePerson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NewsPaperApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="NewsPaper" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khav.NewsPaper.NewsPaperApplication" />
@@ -124,6 +168,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PersonServiceTest.testSavePerson" />
+        <item itemvalue="JUnit.PersonServiceTest.TestingFindByEmailPersonInMethod" />
+        <item itemvalue="JUnit.PersonServiceTest.TestingSaveMethod" />
         <item itemvalue="JUnit.NewsPaperApplicationTests" />
       </list>
     </recent_temporary>
@@ -167,7 +214,8 @@
       <workItem from="1736071517658" duration="6492000" />
       <workItem from="1736158125166" duration="597000" />
       <workItem from="1736262289714" duration="7805000" />
-      <workItem from="1736331176814" duration="15808000" />
+      <workItem from="1736331176814" duration="16327000" />
+      <workItem from="1736407739875" duration="6658000" />
     </task>
     <servers />
   </component>

@@ -23,6 +23,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import ru.khav.NewsPaper.services.AuthorizeService;
 
+import javax.servlet.Filter;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
@@ -33,7 +34,6 @@ import java.util.stream.Stream;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
 
     @Bean
     JWTFilter jwtFilter(){return new JWTFilter();}
@@ -94,6 +94,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     BCryptPasswordEncoder getPasswordEncoder()
