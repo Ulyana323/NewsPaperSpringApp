@@ -5,13 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.validator.constraints.UniqueElements;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
 public class PersonRegistrationDTO {
-
 
     @JsonProperty("name")
     @NotNull(message = "Full it, please")

@@ -1,6 +1,5 @@
 package ru.khav.NewsPaper.services;
 
-import liquibase.pro.packaged.S;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,14 +10,11 @@ import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.security.JWTUtill;
 import ru.khav.NewsPaper.utill.NotUniqueEmailException;
 
-
 import java.util.Optional;
 
 @Service
-public class RegistrationService {
-
-    @Autowired
-    private PersonService personService;
+public class
+RegistrationService {
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -26,20 +22,20 @@ public class RegistrationService {
     ModelMapper modelMapper;
     @Autowired
     JWTUtill jwtUtill;
+    @Autowired
+    private PersonService personService;
 
-@Transactional
-public String registr(PersonRegistrationDTO person)
-{
-    Person personToSave=modelMapper.map(person, Person.class);
-    Optional<Person> personOpt=personService.findByEmail(personToSave);
-    if(personOpt.isPresent())
-    {
-        throw new NotUniqueEmailException();
+    @Transactional
+    public String registr(PersonRegistrationDTO person) {
+        Person personToSave = modelMapper.map(person, Person.class);
+        Optional<Person> personOpt = personService.findByEmail(personToSave);
+        if (personOpt.isPresent()) {
+            throw new NotUniqueEmailException();
+        }
+        personToSave.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
+        personService.save(personToSave);
+        return jwtUtill.generateToken(personToSave.getEmail());
+
     }
-    personToSave.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
-personService.save(personToSave);
-return jwtUtill.generateToken(personToSave.getEmail());
-
-}
 
 }

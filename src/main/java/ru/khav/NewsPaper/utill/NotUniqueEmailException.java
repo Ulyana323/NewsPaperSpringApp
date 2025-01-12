@@ -1,4 +1,4 @@
 package ru.khav.NewsPaper.utill;
 
-public class NotUniqueEmailException extends RuntimeException{
+public class NotUniqueEmailException extends RuntimeException {
 }

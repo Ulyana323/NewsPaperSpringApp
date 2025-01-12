@@ -1,6 +1,5 @@
 package ru.khav.NewsPaper.models;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;

@@ -35,8 +35,13 @@ import java.util.stream.Stream;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    JWTFilter jwtFilter(){return new JWTFilter();}
+
+    private final JWTFilter jwtFilter;
+
+    public SecurityConfig(JWTFilter jwtFilter) {
+        this.jwtFilter = jwtFilter;
+    }
+
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 
@@ -82,7 +87,7 @@ public class SecurityConfig {
 
                 })
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exceptionHandling ->
                         exceptionHandling
                                 .accessDeniedHandler((request, response, e) ->

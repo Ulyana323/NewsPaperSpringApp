@@ -18,14 +18,15 @@ import ru.khav.NewsPaper.models.News;
 import ru.khav.NewsPaper.repositories.NewsRepo;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
-import java.time.chrono.ChronoLocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class NewsService {
 
+    private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
     @Autowired
     NewsRepo newsRepo;
     @Autowired
@@ -33,13 +34,9 @@ public class NewsService {
     @Autowired
     CommentConverter commentConverter;
 
-
-    private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
-    public List<NewsShowDTO> showNews(int page)
-    {
-        List<News> news=newsRepo.findAllByOrderByCreatedAtDesc().orElse(null);
-        if(news==null)
-        {
+    public List<NewsShowDTO> showNews(int page) {
+        List<News> news = newsRepo.findAllByOrderByCreatedAtDesc().orElse(null);
+        if (news == null) {
             return null;
         }
         if (page == 0) {
@@ -49,7 +46,7 @@ public class NewsService {
                     .limit(3)
                     .collect(Collectors.toList());
         } else {
-            news = newsRepo.findAll(PageRequest.of(page, 3, Sort.by("createdAt").descending())).toList(); // Используйте правильное имя поля
+            news = newsRepo.findAll(PageRequest.of(page, 3, Sort.by("createdAt").descending())).toList();
         }
 
         return news.stream()
@@ -58,23 +55,20 @@ public class NewsService {
                 .collect(Collectors.toList());
 
     }
+
     @Transactional
-    public Integer showNewsAndLikeit(String title,boolean like)
-    {
+    public Integer showNewsAndLikeit(String title, boolean like) {
         News NewsToLike = FindByTitle(title);
-        if(NewsToLike==null)
-        {
+        if (NewsToLike == null) {
             return 0;
         }
-     //  newsRepo.findByTitle(title).setLiked(like);
         NewsToLike.setLiked(like);
         return 1;
 
     }
 
 
-    public List<CommentShowDTO> CommentListTransform(List<Comment> comments)
-    {
+    public List<CommentShowDTO> CommentListTransform(List<Comment> comments) {
         if (comments == null) {
             return Collections.emptyList();
         }
@@ -82,6 +76,10 @@ public class NewsService {
             if (comment.getOwner() == null) {
                 logger.warn("Comment owner is null for comment: {}", comment);
             }
+        }
+        List<CommentShowDTO> res = new ArrayList<>();
+        for (Comment c : comments) {
+            res.add(commentConverter.convertToDTO(c));
         }
         return comments.stream()
                 .map(commentConverter::convertToDTO)
@@ -92,21 +90,20 @@ public class NewsService {
     public int saveNews(News news) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth!=null) {
+        if (auth != null) {
             newsRepo.save(news);
             return 1;
-        }else return 0;
+        } else return 0;
     }
 
-    public News findbyId(int id)
-    {
+    public News findbyId(int id) {
         return newsRepo.findById(id).get();
     }
 
 
-    public News FindByTitle(String title){
-        return newsRepo.findByTitle(title).orElse(null);}
-
+    public News FindByTitle(String title) {
+        return newsRepo.findByTitle(title).orElse(null);
+    }
 
 
 }

@@ -8,11 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface NewsRepo extends JpaRepository<News,Integer> {
+public interface NewsRepo extends JpaRepository<News, Integer> {
 
-   List<News> findAll();
+    List<News> findAll();
     Optional<List<News>> findAllByOrderByCreatedAtDesc();
-
-
-  Optional<News> findByTitle(String title);
+    Optional<News> findByTitle(String title);
 }

@@ -17,8 +17,10 @@ public class CommentConverter {
         this.modelMapper = modelMapper;
     }
 
-    public CommentShowDTO convertToDTO(Comment comment)
-    {
+    public CommentShowDTO convertToDTO(Comment comment) {
+        if (comment == null) {
+            return null;
+        }
         return modelMapper.map(comment,CommentShowDTO.class);
     }
 
@@ -31,7 +33,11 @@ public class CommentConverter {
             List<CommentShowDTO> newComments=new ArrayList<>();
             for(Comment c:comments)
             {
-                newComments.add(convertToDTO(c));
+                CommentShowDTO dto=convertToDTO(c);
+                if (dto != null) {
+                    newComments.add(dto);
+                }
+
             }
             return newComments;
         }

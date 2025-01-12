@@ -1,18 +1,20 @@
 package ru.khav.NewsPaper.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "news")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class News {
 
     @Id
@@ -35,11 +37,10 @@ public class News {
     @Column(name = "isliked")
     private boolean isLiked;
 
-   @OneToMany(mappedBy = "news",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
     private List<Comment> comments;
 
-   //todo количество лайков
-
+    //todo количество лайков
 
 
 }

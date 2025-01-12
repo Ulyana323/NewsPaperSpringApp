@@ -12,8 +12,6 @@ import java.util.List;
 @Repository
 public interface CommentRepo extends JpaRepository<Comment,Integer> {
  List<Comment> findAll();
-
  List<Comment> findAllByNews_Title(String title, PageRequest pageRequest);
-
  List<Comment> findAllByNews_Title(String title);
 }

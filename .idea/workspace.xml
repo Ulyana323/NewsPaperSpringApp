@@ -5,13 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f7fe53-9ea5-4091-bd04-94c6a41c6843" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/PersonServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/accumulate-v-03.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/add-column-roles-to-users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/add-new-Roles-table.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/CommentConvertorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/NewsServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/Convertors/CommentConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/Convertors/CommentConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentShowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentShowDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonAuthorizationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonAuthorizationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonRegistrationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonRegistrationDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/MainPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/BlackListTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/BlackListTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/CommentRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/CommentRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/NewsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/NewsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/PersonRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/PersonRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/security/JWTUtill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/security/JWTUtill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/security/PersonDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/security/PersonDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/AuthorizeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/NewsValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/NewsValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/NotUniqueEmailException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/NotUniqueEmailException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/PersonServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/PersonServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +52,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Liquibase Changelog" />
       </list>
     </option>
   </component>
@@ -42,6 +72,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -53,39 +86,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JUnit.NewsPaperApplicationTests.executor": "Run",
-    "JUnit.PersonServiceTest.TestingFindByEmailPersonInMethod.executor": "Run",
-    "JUnit.PersonServiceTest.TestingSaveMethod.executor": "Run",
-    "JUnit.PersonServiceTest.testSavePerson.executor": "Run",
-    "Maven.NewsPaper [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.NewsPaperApplication.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/JAVA/NewsPaper",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertListToDTOValidComments.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertListToDTO_EmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertToDTONullComment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertToDTOValidComment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertToDTO_ValidComment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsPaperApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.CommentListTransformNotEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.CommentListTransormEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.CommentListTransormNotEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.ShowNewsWithPage0.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.ShowNewsWithPageNot0.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.TestingFindByEmailPersonInMethod.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.TestingSaveMethod.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.testSavePerson.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NewsPaper [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.NewsPaperApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JAVA/NewsPaper&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JAVA\NewsPaper\src\main\resources\db\changelog\changeset\v1" />
@@ -95,23 +139,8 @@
       <recent name="D:\JAVA\NewsPaper\src\main\resources\changelog\v1" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonServiceTest.testSavePerson">
-    <configuration name="NewsPaperApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="NewsPaper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.khav.NewsPaper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.khav.NewsPaper" />
-      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.NewsPaperApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonServiceTest.TestingFindByEmailPersonInMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.NewsPaperApplication">
+    <configuration name="CommentConvertorTest.testConvertListToDTOValidComments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewsPaper" />
       <extension name="coverage">
         <pattern>
@@ -120,14 +149,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
-      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.PersonServiceTest" />
-      <option name="METHOD_NAME" value="TestingFindByEmailPersonInMethod" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.CommentConvertorTest" />
+      <option name="METHOD_NAME" value="testConvertListToDTOValidComments" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonServiceTest.TestingSaveMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentConvertorTest.testConvertListToDTO_EmptyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewsPaper" />
       <extension name="coverage">
         <pattern>
@@ -136,14 +165,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
-      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.PersonServiceTest" />
-      <option name="METHOD_NAME" value="TestingSaveMethod" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.CommentConvertorTest" />
+      <option name="METHOD_NAME" value="testConvertListToDTO_EmptyList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonServiceTest.testSavePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentConvertorTest.testConvertToDTONullComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewsPaper" />
       <extension name="coverage">
         <pattern>
@@ -152,8 +181,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
-      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.PersonServiceTest" />
-      <option name="METHOD_NAME" value="testSavePerson" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.CommentConvertorTest" />
+      <option name="METHOD_NAME" value="testConvertToDTONullComment" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentConvertorTest.testConvertToDTOValidComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewsPaper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.khav.NewsPaper.ServicesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.CommentConvertorTest" />
+      <option name="METHOD_NAME" value="testConvertToDTOValidComment" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentConvertorTest.testConvertToDTO_ValidComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewsPaper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.khav.NewsPaper.ServicesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.khav.NewsPaper.ServicesTests" />
+      <option name="MAIN_CLASS_NAME" value="ru.khav.NewsPaper.ServicesTests.CommentConvertorTest" />
+      <option name="METHOD_NAME" value="testConvertToDTO_ValidComment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,10 +229,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PersonServiceTest.testSavePerson" />
-        <item itemvalue="JUnit.PersonServiceTest.TestingFindByEmailPersonInMethod" />
-        <item itemvalue="JUnit.PersonServiceTest.TestingSaveMethod" />
-        <item itemvalue="JUnit.NewsPaperApplicationTests" />
+        <item itemvalue="JUnit.CommentConvertorTest.testConvertListToDTOValidComments" />
+        <item itemvalue="JUnit.CommentConvertorTest.testConvertListToDTO_EmptyList" />
+        <item itemvalue="JUnit.CommentConvertorTest.testConvertToDTOValidComment" />
+        <item itemvalue="JUnit.CommentConvertorTest.testConvertToDTO_ValidComment" />
+        <item itemvalue="JUnit.CommentConvertorTest.testConvertToDTONullComment" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +277,11 @@
       <workItem from="1736158125166" duration="597000" />
       <workItem from="1736262289714" duration="7805000" />
       <workItem from="1736331176814" duration="16327000" />
-      <workItem from="1736407739875" duration="6658000" />
+      <workItem from="1736407739875" duration="11413000" />
+      <workItem from="1736612829785" duration="10161000" />
+      <workItem from="1736680388140" duration="125000" />
+      <workItem from="1736680538906" duration="6229000" />
+      <workItem from="1736686809088" duration="825000" />
     </task>
     <servers />
   </component>
@@ -261,13 +327,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/MainPageController.java</url>
-          <line>97</line>
+          <line>93</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java</url>
@@ -276,7 +337,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/MainPageController.java</url>
-          <line>58</line>
+          <line>55</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -291,7 +352,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RegistrationService.java</url>
-          <line>30</line>
+          <line>28</line>
           <properties class="ru.khav.NewsPaper.services.RegistrationService" method="registr">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -304,6 +365,9 @@
       </breakpoints-defaults>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((MockMethodInterceptor)this.mockitoInterceptor).serializationSupport" custom="ru.khav.NewsPaper.Convertors.CommentConverter,org.mockito.internal.creation.bytebuddy.MockMethodInterceptor" />
+      </configuration>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="e" />
         <watch expression="e" language="JAVA" />
@@ -314,6 +378,9 @@
         <watch expression="news.get(1)" />
         <watch expression="news.get(1).id" />
       </configuration>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/NewsServiceTest.java" line="93">
+        <watch expression="commentsToShow" language="JAVA" />
+      </inline-watch>
     </watches-manager>
   </component>
 </project>

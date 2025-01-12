@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.repositories.PersonRepo;
-import ru.khav.NewsPaper.security.PersonDetails;
 
 import java.util.Optional;
 
@@ -17,30 +16,28 @@ public class PersonService implements UserDetailsService {
 
     @Autowired
     private PersonRepo personRepo;
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<Person> personOptional= personRepo.findByEmail(email);
+        Optional<Person> personOptional = personRepo.findByEmail(email);
 
-        if(!personOptional.isPresent())
-        {
+        if (!personOptional.isPresent()) {
             throw new UsernameNotFoundException("not found!");
-        }
-        else
-        {
-            return new PersonDetails(personOptional.get());
+        } else {
+            return new Person();
         }
     }
+
     @Transactional
-    public void save(Person person)
-    {
+    public void save(Person person) {
         personRepo.save(person);
     }
-    public Optional<Person> findByEmail(Person person)
-    {
+
+    public Optional<Person> findByEmail(Person person) {
         return personRepo.findByEmail(person.getEmail());
     }
-    public Person findByEmail(String email)
-    {
+
+    public Person findByEmail(String email) {
         return personRepo.findByEmail(email).get();
     }
 }
