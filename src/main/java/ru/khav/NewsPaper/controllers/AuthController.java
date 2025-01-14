@@ -50,7 +50,7 @@ public class AuthController {
 
 
     @PostMapping("/registration")
-    public ResponseEntity<String> c(@RequestBody @Valid PersonRegistrationDTO personRegistrationDTO,BindingResult bindingResult) throws NotUniqueEmailException {
+    public ResponseEntity<String> registr(@RequestBody @Valid PersonRegistrationDTO personRegistrationDTO,BindingResult bindingResult) throws NotUniqueEmailException {
         if(bindingResult.hasErrors())
         {
             List<ObjectError> allErrors = bindingResult.getAllErrors();

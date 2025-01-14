@@ -29,8 +29,8 @@ public class CommentService {
     public String addComment(CommentDTO commentDTO, int NewsId) {
         Comment comment = modelMapper.map(commentDTO, Comment.class);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            comment.setOwner(personService.findByEmail(auth.getName()));
+        if (auth != null && newsService.findbyId(NewsId)!=null) {
+            comment.setOwner(personService.findByEmail(auth.getName()).get());
             comment.setNews(newsService.findbyId(NewsId));
             commentRepo.save(comment);
             return "yep";

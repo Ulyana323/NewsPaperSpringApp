@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.khav.NewsPaper.models.Person;
+import ru.khav.NewsPaper.models.Role;
 import ru.khav.NewsPaper.repositories.PersonRepo;
 import ru.khav.NewsPaper.services.PersonService;
 
@@ -15,9 +16,10 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -30,39 +32,41 @@ public class PersonServiceTest {
 
     @Test
     @DisplayName("")
-    void TestingFindByEmailMethod()
-    {
+    void TestingFindByEmailMethod() {
         //given
-        Person person= new Person(1,"Igor","Hovard","igors@gmail.com","123", Collections.emptyList());
+        Person person = new Person(1, "Igor", "Hovard", "igors@gmail.com", "123", Collections.emptyList(),
+                new Role(2, "ROLE_USER"));
+        //When
+        given(personRepo.findByEmail(person.getEmail()))
+                .willReturn(Optional.of(person));
+        var personReturned = personService.findByEmail(person.getEmail());
+        //Then
+        assertThat(personReturned.get()).isNotNull();
+        assertEquals(person, personReturned.get());
+
+    }
+
+    @Test
+    @DisplayName("")
+    void TestingFindByEmailPersonInMethod() {
+        //given
+        Person person = new Person(1, "Igor", "Hovard", "igors@gmail.com", "123", Collections.emptyList(),
+                new Role(2, "ROLE_USER"));
         //When
         given(personRepo.findByEmail(person.getEmail()))
                 .willReturn(Optional.of(person));
         var personReturned = personService.findByEmail(person.getEmail());
         //Then
         assertThat(personReturned).isNotNull();
-        assertEquals(person,personReturned);
-
-    }
-    @Test
-    @DisplayName("")
-    void TestingFindByEmailPersonInMethod()
-    {
-        //given
-        Person person= new Person(1,"Igor","Hovard","igors@gmail.com","123", Collections.emptyList());
-        //When
-        given(personRepo.findByEmail(person.getEmail()))
-                .willReturn(Optional.of(person));
-        var personReturned = personService.findByEmail(person);
-        //Then
-        assertThat(personReturned).isNotNull();
-        assertEquals(Optional.of(person),personReturned);
+        assertEquals(Optional.of(person), personReturned);
 
     }
 
     @Test
     public void testSavePerson() {
         //given
-        Person person= new Person(1,"Igor","Hovard","igors@gmail.com","123", Collections.emptyList());
+        Person person = new Person(1, "Igor", "Hovard", "igors@gmail.com",
+                "123", Collections.emptyList(), new Role(2, "ROLE_USER"));
         //When
 
         personRepo.save(person);

@@ -24,7 +24,8 @@ public class PersonService implements UserDetailsService {
         if (!personOptional.isPresent()) {
             throw new UsernameNotFoundException("not found!");
         } else {
-            return new Person();
+
+            return personOptional.get();
         }
     }
 
@@ -32,12 +33,7 @@ public class PersonService implements UserDetailsService {
     public void save(Person person) {
         personRepo.save(person);
     }
-
-    public Optional<Person> findByEmail(Person person) {
-        return personRepo.findByEmail(person.getEmail());
-    }
-
-    public Person findByEmail(String email) {
-        return personRepo.findByEmail(email).get();
+    public Optional<Person> findByEmail(String email) {
+        return personRepo.findByEmail(email);
     }
 }

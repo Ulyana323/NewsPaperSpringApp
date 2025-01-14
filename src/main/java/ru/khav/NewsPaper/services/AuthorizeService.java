@@ -16,8 +16,10 @@ import ru.khav.NewsPaper.security.JWTUtill;
 public class AuthorizeService {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthorizeService.class);
+
     @Autowired
     JWTUtill jwtUtill;
+
     @Autowired
     AuthenticationManager authenticationManager;
 

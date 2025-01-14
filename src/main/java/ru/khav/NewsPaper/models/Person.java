@@ -8,7 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -46,9 +48,11 @@ public class Person implements UserDetails {
     @JoinColumn(name="role_id" ,referencedColumnName="id")
     private Role role;
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
+       // return new ArrayList<Role>(Collections.singletonList(this.role));
         return null;
     }
 

@@ -25,8 +25,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class NewsService {
-
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
+
     @Autowired
     NewsRepo newsRepo;
     @Autowired

@@ -50,11 +50,10 @@ public class SecurityConfig {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
-               //при неудачной попытке входа пользователь будет пренаправлен обратно на страницу входа
-                //.formLogin().loginPage("/auth/login").permitAll().and()
                 .authorizeRequests()
                 .antMatchers("/News/showComm").permitAll()
                 .antMatchers("/News/show/**").permitAll()
+                .antMatchers("/News/auth/**").permitAll()
                .and()
                 .cors(configurer->{
                     //источник конфигураций корс

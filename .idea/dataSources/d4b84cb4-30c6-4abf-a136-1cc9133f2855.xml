@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>1806</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1812</IntrospectionStateNumber>
       <ServerVersion>17.0</ServerVersion>
       <StartupTime>1736668678</StartupTime>
       <TimeZones>true ACDT
@@ -809,7 +801,7 @@ false Zulu
 14650||10|C|G
 14650||-9223372036854775808|U|G
 14650||10|U|G</Grants>
-      <IntrospectionStateNumber>1806</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1812</IntrospectionStateNumber>
       <ObjectId>24934</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -838,53 +830,53 @@ false Zulu
       <ObjectId>24882</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <role id="9" parent="1" name="pg_checkpoint">
-      <ObjectId>4544</ObjectId>
-    </role>
-    <role id="10" parent="1" name="pg_create_subscription">
-      <ObjectId>6304</ObjectId>
-    </role>
-    <role id="11" parent="1" name="pg_database_owner">
+    <role id="9" parent="1" name="pg_database_owner">
       <ObjectId>6171</ObjectId>
     </role>
-    <role id="12" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
+    <role id="10" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
     </role>
-    <role id="13" parent="1" name="pg_maintain">
-      <ObjectId>6337</ObjectId>
+    <role id="11" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
     </role>
-    <role id="14" parent="1" name="pg_monitor">
+    <role id="12" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
       <RoleGrants>3374
 3375
 3377</RoleGrants>
     </role>
-    <role id="15" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
-    </role>
-    <role id="16" parent="1" name="pg_read_all_settings">
+    <role id="13" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
     </role>
-    <role id="17" parent="1" name="pg_read_all_stats">
+    <role id="14" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
     </role>
-    <role id="18" parent="1" name="pg_read_server_files">
+    <role id="15" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+    </role>
+    <role id="16" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
+    </role>
+    <role id="17" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
+    </role>
+    <role id="18" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
     </role>
     <role id="19" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
     </role>
-    <role id="20" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
+    <role id="20" parent="1" name="pg_checkpoint">
+      <ObjectId>4544</ObjectId>
     </role>
-    <role id="21" parent="1" name="pg_use_reserved_connections">
+    <role id="21" parent="1" name="pg_maintain">
+      <ObjectId>6337</ObjectId>
+    </role>
+    <role id="22" parent="1" name="pg_use_reserved_connections">
       <ObjectId>4550</ObjectId>
     </role>
-    <role id="22" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
-    </role>
-    <role id="23" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
+    <role id="23" parent="1" name="pg_create_subscription">
+      <ObjectId>6304</ObjectId>
     </role>
     <role id="24" parent="1" name="postgres">
       <BypassRls>1</BypassRls>
@@ -4256,8 +4248,8 @@ false Zulu
     <schema id="270" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1806</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-01-12.13:11:03</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1812</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-01-14.09:14:33</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4296,7 +4288,7 @@ false Zulu
     </sequence>
     <table id="275" parent="270" name="comments">
       <ObjectId>25014</ObjectId>
-      <StateNumber>1226</StateNumber>
+      <StateNumber>1811</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4326,7 +4318,7 @@ false Zulu
     </table>
     <table id="280" parent="270" name="users">
       <ObjectId>24956</ObjectId>
-      <StateNumber>1803</StateNumber>
+      <StateNumber>1811</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4388,7 +4380,7 @@ false Zulu
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25019</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1222</StateNumber>
+      <StateNumber>1811</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
@@ -4700,14 +4692,14 @@ false Zulu
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24961</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1214</StateNumber>
+      <StateNumber>1811</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <index id="333" parent="280" name="name_unigue">
       <ColNames>name</ColNames>
       <ObjectId>25058</ObjectId>
-      <StateNumber>1235</StateNumber>
+      <StateNumber>1811</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -4718,7 +4710,7 @@ false Zulu
       <ColNames>email</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25122</ObjectId>
-      <StateNumber>1348</StateNumber>
+      <StateNumber>1811</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
