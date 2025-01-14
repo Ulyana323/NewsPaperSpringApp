@@ -4,6 +4,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -82,9 +84,10 @@ public class MainPageController {
         return commentSorting.ShowComments(page, title);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("/addNew")
     public ResponseEntity<?> addNews(@RequestBody @Valid NewsDTO newsDTO
-            , BindingResult bindingResult) {
+            , BindingResult bindingResult) throws AccessDeniedException {
         newsValidator.validate(newsDTO, bindingResult);
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new ErrorResponse("incorrect format of News", System.currentTimeMillis()), HttpStatus.BAD_REQUEST);
@@ -93,6 +96,18 @@ public class MainPageController {
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } else return new ResponseEntity<>("Not Authorized", HttpStatus.BAD_REQUEST);
 
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/delNew")
+    public ResponseEntity<?> DelNews(@RequestParam String title) throws AccessDeniedException {
+        newsService.deleteNews(title);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorResponse> handleAccessDeniedException(AccessDeniedException ex) {
+        return new ResponseEntity<>(new ErrorResponse("нет доступа", System.currentTimeMillis()), HttpStatus.FORBIDDEN);
     }
 
 

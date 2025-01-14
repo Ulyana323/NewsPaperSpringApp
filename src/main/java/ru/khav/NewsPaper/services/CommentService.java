@@ -24,7 +24,6 @@ public class CommentService {
     @Autowired
     NewsService newsService;
 
-
     @Transactional
     public String addComment(CommentDTO commentDTO, int NewsId) {
         Comment comment = modelMapper.map(commentDTO, Comment.class);

@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -33,6 +34,7 @@ import java.util.stream.Stream;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfig {
 
 
@@ -90,10 +92,10 @@ public class SecurityConfig {
                 .exceptionHandling(exceptionHandling ->
                         exceptionHandling
                                 .accessDeniedHandler((request, response, e) ->
-                                        // Логгировние ошибок доступа
+                                        //Логгировние ошибок доступа
                                         LOGGER.error(e.getMessage(), e))
                                 .authenticationEntryPoint((request, response, e) ->
-                                        // Логгировние ошибок аутентификации
+                                        //Логгировние ошибок аутентификации
                                         LOGGER.error(e.getMessage(), e)));
 
         return http.build();

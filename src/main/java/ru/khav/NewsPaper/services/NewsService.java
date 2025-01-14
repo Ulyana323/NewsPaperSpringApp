@@ -105,5 +105,10 @@ public class NewsService {
         return newsRepo.findByTitle(title).orElse(null);
     }
 
+    @Transactional
+    public void deleteNews(String title)
+    {
+        newsRepo.delete(FindByTitle(title));
+    }
 
 }
