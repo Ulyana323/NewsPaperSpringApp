@@ -14,7 +14,9 @@ import ru.khav.NewsPaper.models.Person;
 public class NewsPaperApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(NewsPaperApplication.class, args);
+
 	}
 	@Bean
 	public ModelMapper modelMapper()

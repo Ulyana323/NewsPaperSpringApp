@@ -26,6 +26,7 @@ import ru.khav.NewsPaper.services.AuthorizeService;
 
 import javax.servlet.Filter;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -64,8 +65,10 @@ public class SecurityConfig {
                     CorsConfiguration globalCorsConfiguration=new CorsConfiguration();
                     // Разрешаются CORS-запрoca c
                     globalCorsConfiguration.addAllowedOrigin("http://localhost:8080");
+                    globalCorsConfiguration.addAllowedOrigin("http://localhost:8081");//на этом порте клиент
                     //с нестандартными заголовками
-                    globalCorsConfiguration.addAllowedHeader(HttpHeaders.AUTHORIZATION);
+                    //globalCorsConfiguration.addAllowedHeader(HttpHeaders.AUTHORIZATION);
+                    globalCorsConfiguration.setAllowedHeaders(Arrays.asList("*")); // Разрешенные заголовки
                     //с передачей учётных данных
                     globalCorsConfiguration.setAllowCredentials(true);
                     //с методами GET, POST, PUT, PATCH и DELETE

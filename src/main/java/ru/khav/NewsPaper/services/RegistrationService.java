@@ -38,5 +38,17 @@ RegistrationService {
         personService.save(personToSave);
         return jwtUtill.generateToken(personToSave.getEmail());
     }
+    @Transactional
+    public String registrAdmin(PersonRegistrationDTO person) {
+        Person personToSave = modelMapper.map(person, Person.class);
+        Optional<Person> personOpt = personService.findByEmail(personToSave.getEmail());
+        if (personOpt.isPresent()) {
+            throw new NotUniqueEmailException();
+        }
+        personToSave.setRole(new Role(1,"ROLE_ADMIN"));
+        personToSave.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
+        personService.save(personToSave);
+        return jwtUtill.generateToken(personToSave.getEmail());
+    }
 
 }

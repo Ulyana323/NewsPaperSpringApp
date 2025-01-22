@@ -1,8 +1,6 @@
 package ru.khav.NewsPaper.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -15,6 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class News {
 
     @Id
@@ -23,11 +22,11 @@ public class News {
     private int id;
 
     @Column(name = "title")
-    @NotNull(message = "Full it, please")
+    @NonNull
     private String title;
 
     @Column(name = "text")
-    @NotNull(message = "Full it, please")
+    @NonNull
     private String text;
 
     @Column(name = "created_at")
@@ -40,7 +39,7 @@ public class News {
     @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
     private List<Comment> comments;
 
-    //todo количество лайков
+
 
 
 }

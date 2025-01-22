@@ -33,6 +33,7 @@ public class PersonService implements UserDetailsService {
     public void save(Person person) {
         personRepo.save(person);
     }
+
     public Optional<Person> findByEmail(String email) {
         return personRepo.findByEmail(email);
     }
