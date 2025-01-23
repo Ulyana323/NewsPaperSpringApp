@@ -16,7 +16,7 @@ public class Role implements GrantedAuthority {
     @Column(name = "id")
     private int id;
     @Column(name = "role_name")
-    private String Role_name;
+    private String roleName;
 
     @Transient
     @OneToMany(mappedBy = "role")
@@ -25,17 +25,13 @@ public class Role implements GrantedAuthority {
     public Role() {
     }
 
-    public Role(int id) {
-        this.id = id;
-    }
-
     public Role(int id, String name) {
         this.id = id;
-        this.Role_name = name;
+        this.roleName = name;
     }
 
     @Override
     public String getAuthority() {
-        return getRole_name();
+        return getRoleName();
     }
 }

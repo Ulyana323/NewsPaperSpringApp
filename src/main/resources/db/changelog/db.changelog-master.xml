@@ -6,6 +6,6 @@
     <include file="v-01-creating/accumulate-v-01.xml" relativeToChangelogFile="true"/>
    <include file="v-02-changes/accumulate-v-02.xml" relativeToChangelogFile="true"/>
     <include file="v-03-new-table/accumulate-v-03.xml" relativeToChangelogFile="true" />
-    <include file="inserting-data-to-test/accumulate-insertion.xml" relativeToChangelogFile="true" />
+    <!--<include file="inserting-data-to-test/accumulate-insertion.xml" relativeToChangelogFile="true" />-->
 
 </databaseChangeLog>

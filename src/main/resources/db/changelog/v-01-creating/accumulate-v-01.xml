@@ -4,7 +4,7 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="create-table-users.xml" relativeToChangelogFile="true"/>
-    <include file="create-table-news.xml" relativeToChangelogFile="true"/>
+    <include file="create-table-nnews.xml" relativeToChangelogFile="true"/>
     <include file="create-table-comments.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

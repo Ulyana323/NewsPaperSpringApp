@@ -4,6 +4,7 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
         <include file="add-new-Roles-table.xml" relativeToChangelogFile="true"/>
+        <include file="insert-Roles.xml" relativeToChangelogFile="true"/>
         <include file="add-column-roles-to-users.xml" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
