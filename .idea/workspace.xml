@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f7fe53-9ea5-4091-bd04-94c6a41c6843" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/RoleRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-nnews.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/InitDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/InitDataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/inserting-data-to-test/accumulate-insertion.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/inserting-data-to-test/insert-Roles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/insert-Roles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/accumulate-v-01.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/accumulate-v-01.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-news.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/accumulate-v-03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/accumulate-v-03.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +269,8 @@
       <workItem from="1737095685261" duration="2868000" />
       <workItem from="1737201848637" duration="284000" />
       <workItem from="1737527633639" duration="11501000" />
-      <workItem from="1737621335713" duration="7966000" />
+      <workItem from="1737621335713" duration="8648000" />
+      <workItem from="1737699397038" duration="7391000" />
     </task>
     <servers />
   </component>

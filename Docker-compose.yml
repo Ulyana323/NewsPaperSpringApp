@@ -1,5 +1,7 @@
+version: '3.8'
 services:
   spring-app:
+    image: ulyashka/newspaper_spring_app:v4
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,7 +16,7 @@ services:
       - db
 
   db:
-    image: postgres:14-alpine
+    image: postgres:17
     container_name: postgres_db
     restart: no
     environment:
@@ -23,5 +25,10 @@ services:
       POSTGRES_PASSWORD: mermaid
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+    postgres_data:
 
 
