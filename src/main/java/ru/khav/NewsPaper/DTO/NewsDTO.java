@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 @Data
 public class NewsDTO {
 
+    @NotNull
+    private int id;
+
     @NotNull(message = "Full it, please")
     private String title;
 

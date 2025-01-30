@@ -16,7 +16,9 @@ public class NewsShowDTO {
 
     private List<CommentShowDTO> Comments;
 
-    private boolean isLiked;
+    private boolean isLikedByThisUser;
+
+    private int countLikes;
 
     private LocalDateTime createdAt;
 

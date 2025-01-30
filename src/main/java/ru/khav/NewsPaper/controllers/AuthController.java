@@ -35,10 +35,8 @@ public class AuthController {
 
     @Autowired
     RegistrationService registrationService;
-
     @Autowired
     ModelMapper modelMapper;
-
     @Autowired
     JWTUtill jwtUtill;
     @Autowired
@@ -101,6 +99,7 @@ public class AuthController {
 
         return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
     }
+
 
 
 

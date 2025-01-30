@@ -1,7 +1,9 @@
 package ru.khav.NewsPaper.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,6 +17,18 @@ import java.util.List;
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class News {
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", createdAt=" + createdAt +
+                ", comments=" + comments.size() +
+                ", likes=" + likes.size() +
+                '}';
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +47,16 @@ public class News {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @Column(name = "isliked")
-    private boolean isLiked;
+    @Column(name = "updated_up")
+    @UpdateTimestamp
+    private LocalDateTime updatedUp;
 
     @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
     private List<Comment> comments;
+
+
+    @OneToMany(mappedBy = "newsOwnLike", fetch = FetchType.EAGER)
+    private List<Like> likes;
 
 
 

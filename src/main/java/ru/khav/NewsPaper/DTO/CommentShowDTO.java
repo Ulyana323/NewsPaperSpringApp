@@ -10,6 +10,7 @@ import java.util.Date;
 public class CommentShowDTO {
     public CommentShowDTO() {
     }
+    private int id;
 
     private String text;
 

@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.khav.NewsPaper.Convertors.CommentConverter;
 import ru.khav.NewsPaper.DTO.CommentShowDTO;
+import ru.khav.NewsPaper.DTO.NewsDTO;
 import ru.khav.NewsPaper.DTO.NewsShowDTO;
 import ru.khav.NewsPaper.models.Comment;
 import ru.khav.NewsPaper.models.News;
+import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.repositories.NewsRepo;
 
 import java.time.LocalDateTime;
@@ -33,7 +35,30 @@ public class NewsService {
     ModelMapper modelMapper;
     @Autowired
     CommentConverter commentConverter;
+    @Autowired
+    LikeService likeService;
 
+    public List<NewsShowDTO> showNewsForAuthrizedUser(int page,Person user) {
+        List<News> news = newsRepo.findAllByOrderByCreatedAtDesc().orElse(null);
+        if (news == null) {
+            return null;
+        }
+        if (page == 0) {
+            LocalDateTime nowDate = LocalDateTime.now();
+            news = news.stream()
+                    .filter(c -> c.getCreatedAt().isAfter(nowDate.minusHours(24)))
+                    .limit(3)
+                    .collect(Collectors.toList());
+        } else {
+            news = newsRepo.findAll(PageRequest.of(page, 3, Sort.by("createdAt").descending())).toList();
+        }
+
+        return news.stream()
+                .map(n -> new NewsShowDTO(n.getTitle(), n.getText(),
+                        CommentListTransform(n.getComments()),likeService.isNewsLikesByCurrUser(user,n),n.getLikes().size(), n.getCreatedAt()))
+                .collect(Collectors.toList());
+
+    }
     public List<NewsShowDTO> showNews(int page) {
         List<News> news = newsRepo.findAllByOrderByCreatedAtDesc().orElse(null);
         if (news == null) {
@@ -51,22 +76,24 @@ public class NewsService {
 
         return news.stream()
                 .map(n -> new NewsShowDTO(n.getTitle(), n.getText(),
-                        CommentListTransform(n.getComments()), n.isLiked(), n.getCreatedAt()))
+                        CommentListTransform(n.getComments()),false,n.getLikes().size(), n.getCreatedAt()))
                 .collect(Collectors.toList());
 
     }
 
     @Transactional
-    public Integer showNewsAndLikeit(String title, boolean like) {
-        News NewsToLike = FindByTitle(title);
-        if (NewsToLike == null) {
-            return 0;
+    public Integer showNewsAndLikeit(String title) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            News newsToLike = FindByTitle(title);
+            if (newsToLike == null) {
+                return 0;
+            }
+            likeService.like((Person) auth.getPrincipal(), newsToLike);
+            return 1;
         }
-        NewsToLike.setLiked(like);
-        return 1;
-
+        return 0;
     }
-
 
     public List<CommentShowDTO> CommentListTransform(List<Comment> comments) {
         if (comments == null) {
@@ -104,10 +131,17 @@ public class NewsService {
     public News FindByTitle(String title) {
         return newsRepo.findByTitle(title).orElse(null);
     }
+    @Transactional
+    public int editNews(NewsDTO newsDTO)
+    {
+        News oldNews= newsRepo.findById(newsDTO.getId()).get();
+        oldNews.setTitle(newsDTO.getTitle());
+        oldNews.setText(newsDTO.getText());
+        return 1;
+    }
 
     @Transactional
-    public void deleteNews(String title)
-    {
+    public void deleteNews(String title) {
         newsRepo.delete(FindByTitle(title));
     }
 

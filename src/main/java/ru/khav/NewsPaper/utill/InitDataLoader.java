@@ -42,7 +42,7 @@ public class InitDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Random random = new Random();
+        /*Random random = new Random();
         String title;
 
 
@@ -50,7 +50,7 @@ public class InitDataLoader implements CommandLineRunner {
             title = "title" + random.nextInt();
             News news = new News(title, generateTextNews(300));
             newsRepo.save(news);
-        }
+        }*/
 
        roleService.addRolesToDB();
 

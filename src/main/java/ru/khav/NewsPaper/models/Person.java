@@ -1,5 +1,6 @@
 package ru.khav.NewsPaper.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,7 +35,6 @@ public class Person implements UserDetails {
     @NotNull
     private String lastname;
 
-
     @Column(name = "email")
     @NotNull
     private String email;
@@ -48,6 +48,9 @@ public class Person implements UserDetails {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="role_id" ,referencedColumnName="id")
     private Role role;
+
+    @OneToMany(mappedBy = "personOwnLike", fetch = FetchType.EAGER)
+    private List<Like> likes;
 
 
     @Override

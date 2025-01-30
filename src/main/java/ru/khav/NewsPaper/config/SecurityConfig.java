@@ -54,9 +54,9 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests()
-                .antMatchers("/News/showComm").permitAll()
-                .antMatchers("/News/show/**").permitAll()
-                .antMatchers("/News/auth/**").permitAll()
+                .antMatchers("/news/showComm").permitAll()
+                .antMatchers("/news/show/**").permitAll()
+                .antMatchers("/news/auth/**").permitAll()
                .and()
                 .cors(configurer->{
                     //источник конфигураций корс

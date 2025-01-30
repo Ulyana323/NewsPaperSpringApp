@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.khav.NewsPaper.DTO.CommentDTO;
 import ru.khav.NewsPaper.models.Comment;
+import ru.khav.NewsPaper.models.News;
+import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.repositories.CommentRepo;
 
 @Service
@@ -36,6 +38,25 @@ public class CommentService {
         }
         return "nop";
     }
+
+    @Transactional//админ может удалять любой коммент а юзер только свой
+    public int deleteComment(String title,int commentId)
+    {
+        Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+        Person curUsr=(Person) auth.getPrincipal();
+        News news=newsService.FindByTitle(title);
+        if(news.getComments().stream().filter(x->x.getOwner().equals(curUsr)).filter(x->x.getId()==commentId).count()==1)
+        {
+            commentRepo.delete(commentRepo.findById(commentId).get());
+            return 1;
+        } else if (curUsr.getRole().getRoleName().equals("ROLE_ADMIN")) {
+            commentRepo.delete(commentRepo.findById(commentId).get());
+            return 1;
+        }
+        return 0;
+
+    }
+
 
 
 }
