@@ -43,37 +43,33 @@ public class AdminController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new ErrorResponse("incorrect format of News", System.currentTimeMillis()), HttpStatus.BAD_REQUEST);
         }
-        if (newsService.saveNews(modelMapper.map(newsDTO, News.class)) == 1) {
+        if (newsService.saveNews(newsDTO) == 1) {
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
-        } else return new ResponseEntity<>("Not Authorized", HttpStatus.BAD_REQUEST);
+        } else return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
 
     }
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @DeleteMapping("/delNew")
     public ResponseEntity<?> DelNews(@RequestParam String title) throws AccessDeniedException {
-        newsService.deleteNews(title);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        if(newsService.deleteNews(title)==1)
+        {
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);}
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-
+//сначала клиент получает id новости из бд
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/editNews")
     public int getIdNews(@RequestParam String title)
     {
         return newsService.FindByTitle(title).getId();
     }
+    //потом отправляет этот id с новыми данными
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PatchMapping("/editNews")
-    public ResponseEntity<?> editNews(@RequestBody @Valid NewsDTO editedNews,
-        BindingResult bindingResult){
-        newsValidator.validate(editedNews, bindingResult);
-        if (bindingResult.hasErrors()) {
-            // Создаем список ошибок
-            List<String> errorMessages = bindingResult.getAllErrors().stream()
-                    .map(error -> error.getDefaultMessage())
-                    .collect(Collectors.toList());
-            return new ResponseEntity<>(new ErrorResponse(errorMessages, System.currentTimeMillis()), HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<?> editNews(@RequestBody @Valid NewsDTO editedNews){
         newsService.editNews(editedNews);
         return ResponseEntity.ok("News updated successfully");
     }

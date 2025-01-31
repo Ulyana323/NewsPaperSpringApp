@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="add-table-themes-n-news" author="Ulyana">
+        <createTable tableName="themes_n_news">
+            <column name="theme_id" type="int">
+                <constraints foreignKeyName="theme_id_news"
+                             referencedTableName="themes"
+                             referencedColumnNames="id"
+                             nullable="false"
+                             unique="false"/>
+            </column>
+            <column name="news_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="news_id_themes"
+                             referencedColumnNames="id"
+                             referencedTableName="news"
+                             unique="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

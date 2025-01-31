@@ -6,5 +6,6 @@
     <include file="add-table-likes.xml" relativeToChangelogFile="true"/>
     <include file="delete-column-isliked-news.xml" relativeToChangelogFile="true"/>
     <include file="add-column-updated-up-news.xml" relativeToChangelogFile="true"/>
-
+    <include file="add-table-themess.xml" relativeToChangelogFile="true"/>
+    <include file="add-table-theme-n-news.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

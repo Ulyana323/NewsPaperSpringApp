@@ -2,6 +2,7 @@ package ru.khav.NewsPaper.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import ru.khav.NewsPaper.services.AuthorizeService;
 
 import javax.servlet.Filter;
@@ -56,7 +58,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/news/showComm").permitAll()
                 .antMatchers("/news/show/**").permitAll()
-                .antMatchers("/news/auth/**").permitAll()
+                .antMatchers("/auth/**").permitAll()
                .and()
                 .cors(configurer->{
                     //источник конфигураций корс
@@ -111,7 +113,6 @@ public class SecurityConfig {
 
         return new BCryptPasswordEncoder(5);
     }
-
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {

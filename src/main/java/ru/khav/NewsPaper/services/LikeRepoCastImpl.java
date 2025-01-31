@@ -11,7 +11,7 @@ public class LikeRepoCastImpl {
     private EntityManager entityManager;
 
     public boolean existsLike(int userId, int newsId) throws RuntimeException {
-        String jpql = "SELECT CASE WHEN COUNT(l) > 0 THEN true ELSE false END FROM Like l WHERE l.personOwnLike.id = :userId AND l.newsOwnLike.id = :newsId";
+        String jpql = "SELECT COUNT(l) > 0 FROM Like l WHERE l.personOwnLike.id = :userId AND l.newsOwnLike.id = :newsId";
         try{
         TypedQuery<Boolean> query = entityManager.createQuery(jpql, Boolean.class);
         query.setParameter("userId", userId);
