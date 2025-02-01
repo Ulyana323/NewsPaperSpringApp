@@ -10,6 +10,7 @@ public class LikeRepoCastImpl {
     @PersistenceContext
     private EntityManager entityManager;
 
+    //метод проверяет с помощью кастомного запроса есть ли лайк между определенной новостью и пользователем по их id
     public boolean existsLike(int userId, int newsId) throws RuntimeException {
         String jpql = "SELECT COUNT(l) > 0 FROM Like l WHERE l.personOwnLike.id = :userId AND l.newsOwnLike.id = :newsId";
         try{

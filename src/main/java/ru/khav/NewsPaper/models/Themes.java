@@ -29,6 +29,9 @@ public class Themes {
             inverseJoinColumns = @JoinColumn(name = "news_id"))
     private Set<News> news = new HashSet<>();
 
+    @OneToMany(mappedBy = "theme", fetch = FetchType.EAGER)
+    private Set<Preferences> preferences= new HashSet<>();
+
     @Override
     public String toString() {
         return "Themes{" +

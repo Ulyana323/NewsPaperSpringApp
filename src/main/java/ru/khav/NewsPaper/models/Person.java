@@ -10,10 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -51,6 +48,9 @@ public class Person implements UserDetails {
 
     @OneToMany(mappedBy = "personOwnLike", fetch = FetchType.EAGER)
     private List<Like> likes;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Preferences> preferences= new HashSet<>();
 
 
     @Override

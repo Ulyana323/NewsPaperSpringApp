@@ -64,6 +64,7 @@ public class AdminController {
     @GetMapping("/editNews")
     public int getIdNews(@RequestParam String title)
     {
+
         return newsService.FindByTitle(title).getId();
     }
     //потом отправляет этот id с новыми данными

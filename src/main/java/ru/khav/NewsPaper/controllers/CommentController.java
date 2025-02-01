@@ -71,9 +71,9 @@ public class CommentController {
 
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @DeleteMapping("/deleteComment")
-    public int deleteComment(@RequestParam String title, @RequestParam int commentId)
+    public int deleteComment(@RequestParam String titleNews, @RequestParam int commentId)
     {
-        return commentService.deleteComment(title,commentId);
+        return commentService.deleteComment(titleNews,commentId);
     }
 
     @ExceptionHandler(AccessDeniedException.class)

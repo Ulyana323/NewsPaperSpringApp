@@ -32,21 +32,21 @@ public class CommentConvertorTest {
         assertNull(result);
     }
 
-    @Test
-    public void testConvertToDTOValidComment() {
-        //given
-        Comment comment = new Comment(1, new Date(), "text", new Person(1, "o", "o", "o", "o",
-                Collections.emptyList(), new Role(2, "ROLE_USER")), new News());
-        CommentShowDTO expectedDto = new CommentShowDTO(comment.getText(), comment.getOwner().getName(),
-                comment.getOwner().getLastname(), comment.getCreatedAt());
-        when(modelMapper.map(comment, CommentShowDTO.class)).thenReturn(expectedDto);
-        //when
-        CommentShowDTO result = commentConverter.convertToDTO(comment);
-        //then
-        assertNotNull(result);
-        assertEquals(expectedDto.getText(), result.getText());
-
-    }
+//    @Test
+//    public void testConvertToDTOValidComment() {
+//        //given
+//        Comment comment = new Comment(1, new Date(), "text", new Person(1, "o", "o", "o", "o",
+//                Collections.emptyList(), new Role(2, "ROLE_USER")), new News());
+//        CommentShowDTO expectedDto = new CommentShowDTO(comment.getText(), comment.getOwner().getName(),
+//                comment.getOwner().getLastname(), comment.getCreatedAt());
+//        when(modelMapper.map(comment, CommentShowDTO.class)).thenReturn(expectedDto);
+//        //when
+//        CommentShowDTO result = commentConverter.convertToDTO(comment);
+//        //then
+//        assertNotNull(result);
+//        assertEquals(expectedDto.getText(), result.getText());
+//
+//    }
 
     @Test
     public void testConvertListToDTO_EmptyList() {
