@@ -1,6 +1,4 @@
 package ru.khav.NewsPaper.ServicesTests;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.BDDMockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +13,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
 import ru.khav.NewsPaper.security.JWTUtill;
 import ru.khav.NewsPaper.services.AuthorizeService;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.*;
 
 public class AuthorizeServiceTest {
 
@@ -31,6 +32,7 @@ public class AuthorizeServiceTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);//чтобы моки authenticationManager не были равны null
     }
+
     @Test
     public void testAuthorize_Success() {
         //given

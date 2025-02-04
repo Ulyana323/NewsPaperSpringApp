@@ -24,6 +24,8 @@ public class NewsShowDTO {
 
     private LocalDateTime createdAt;
 
+   private String imgSource;
+
     private Set<String> themes;
 
 }

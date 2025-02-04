@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "comments")
@@ -34,6 +35,9 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "news_id", referencedColumnName = "id")
     private News news;
+
+    public <T> Comment(int i, Date date, String ahahah, Person user, News news, List<Comment> ts) {
+    }
 
 
     @Override

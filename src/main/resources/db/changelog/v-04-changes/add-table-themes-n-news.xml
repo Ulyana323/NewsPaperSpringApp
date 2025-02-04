@@ -10,14 +10,16 @@
                              referencedTableName="themes"
                              referencedColumnNames="id"
                              nullable="false"
-                             unique="false"/>
+                             unique="false"
+                             deleteCascade="true"/>
             </column>
             <column name="news_id" type="int">
                 <constraints nullable="false"
                              foreignKeyName="news_id_themes"
                              referencedColumnNames="id"
                              referencedTableName="news"
-                             unique="false"/>
+                             unique="false"
+                             deleteCascade="true"/>
             </column>
         </createTable>
 

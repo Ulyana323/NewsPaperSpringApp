@@ -11,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.khav.NewsPaper.Convertors.CommentConverter;
-import ru.khav.NewsPaper.Convertors.NewsConvertor;
 import ru.khav.NewsPaper.DTO.CommentShowDTO;
 import ru.khav.NewsPaper.DTO.NewsDTO;
 import ru.khav.NewsPaper.DTO.NewsShowDTO;
@@ -19,6 +18,7 @@ import ru.khav.NewsPaper.models.*;
 import ru.khav.NewsPaper.repositories.NewsRepo;
 import ru.khav.NewsPaper.repositories.PreferRepo;
 import ru.khav.NewsPaper.repositories.ThemeRepo;
+import ru.khav.NewsPaper.utill.NotUniqueEmailException;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -39,8 +39,6 @@ public class NewsService {
     @Autowired
     LikeService likeService;
     @Autowired
-    NewsConvertor newsConvertor;
-    @Autowired
     PreferRepo preferRepo;
 
     public List<NewsShowDTO> showNewsForAuthrizedUser(int page, Person user) {
@@ -53,11 +51,11 @@ public class NewsService {
         //формируем списки id тематик для сортировки новостей
         Set<Integer> favouriteTheme = currentPreferences.stream()
                 .filter(x -> x.isStatus())
-                .map(x -> x.getThemeId())
+                .map(x -> x.getTheme().getId())
                 .collect(Collectors.toSet());
         Set<Integer> bannedThemes = currentPreferences.stream()
                 .filter(x -> !x.isStatus())
-                .map(x -> x.getThemeId())
+                .map(x -> x.getTheme().getId())
                 .collect(Collectors.toSet());
 
         if (page == 0) {
@@ -72,17 +70,20 @@ public class NewsService {
 
         //фильтруем и сортируем новости по тематикам
         news = news.stream()
-                .filter(n-> bannedThemes.isEmpty()||n.getThemes().stream().noneMatch(t->bannedThemes.contains(t.getId())))
+                .filter(n -> bannedThemes.isEmpty() || n.getThemes().stream().noneMatch(t -> bannedThemes.contains(t.getId())))
                 .sorted(Comparator.comparingInt(n ->
-                                (int) n.getThemes().stream()
-                        .filter(t->favouriteTheme.contains(t.getId()))
-                        .count()))
-                .collect(Collectors.toList()).reversed();
+                        (int) n.getThemes().stream()
+                                .filter(t -> favouriteTheme.contains(t.getId()))
+                                .count()))
+                .collect(Collectors.toList());
+
+        Collections.reverse(news);
 
         return news.stream()
                 .map(n -> new NewsShowDTO(n.getTitle(), n.getText(),
-                        CommentListTransform(n.getComments()), likeService.isNewsLikesByCurrUser(user, n), n.getLikes().size(), n.getCreatedAt(), convertListThemes(n.getThemes())))
+                        CommentListTransform(n.getComments()), likeService.isNewsLikesByCurrUser(user, n), n.getLikes().size(), n.getCreatedAt(), n.getImgSource(),convertListThemes(n.getThemes())))
                 .collect(Collectors.toList());
+
 
     }
 
@@ -103,9 +104,8 @@ public class NewsService {
         }
 
         return news.stream()
-                .filter(x -> x.getThemes().)
                 .map(n -> new NewsShowDTO(n.getTitle(), n.getText(),
-                        CommentListTransform(n.getComments()), false, n.getLikes().size(), n.getCreatedAt(), convertListThemes(n.getThemes())))
+                        CommentListTransform(n.getComments()), false, n.getLikes().size(), n.getCreatedAt(),n.getImgSource(), convertListThemes(n.getThemes())))
                 .collect(Collectors.toList());
 
     }
@@ -161,6 +161,7 @@ public class NewsService {
             News news = new News();
             news.setTitle(newsDTO.getTitle());
             news.setText(newsDTO.getText());
+            news.setImgSource(news.getImgSource());
             newsRepo.save(news);
             News savedNews = newsRepo.findByTitle(news.getTitle()).get();
             Set<Themes> themes = new HashSet<>();
@@ -187,10 +188,11 @@ public class NewsService {
     @Transactional
     public int editNews(NewsDTO newsDTO) {
         News oldNews = newsRepo.findById(newsDTO.getId()).get();
-        if (!oldNews.getTitle().equals(newsDTO.getTitle())) {
+        if (!oldNews.getTitle().equals(newsDTO.getTitle())&&!newsRepo.findByTitle(newsDTO.getTitle()).isPresent()) {
             oldNews.setTitle(newsDTO.getTitle());
         }
         oldNews.setText(newsDTO.getText());
+        oldNews.setImgSource(newsDTO.getImgSource());
         //удаляем старые темы
         oldNews.getThemes().stream().forEach(x -> x.getNews().remove(oldNews));
         oldNews.getThemes().clear();
@@ -211,5 +213,19 @@ public class NewsService {
         return 1;
     }
 
+    @Transactional
+    public int addNewTheme(String theme_name) {
+        if (!themeRepo.findByName(theme_name).isPresent()) {
+            themeRepo.save(new Themes(theme_name));
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public List<String> showAllThemes()
+    {
+        return themeRepo.findAll().stream().map(x->x.getName()).collect(Collectors.toList());
+    }
 
 }

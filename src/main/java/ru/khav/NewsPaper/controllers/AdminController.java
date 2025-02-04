@@ -10,23 +10,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.khav.NewsPaper.DTO.NewsDTO;
-import ru.khav.NewsPaper.models.News;
-import ru.khav.NewsPaper.services.CommentService;
 import ru.khav.NewsPaper.services.NewsService;
-import ru.khav.NewsPaper.utill.CommentSorting;
-import ru.khav.NewsPaper.utill.CommentValidator;
 import ru.khav.NewsPaper.utill.ErrorResponse;
 import ru.khav.NewsPaper.utill.NewsValidator;
+import ru.khav.NewsPaper.utill.NotUniqueEmailException;
 
 import javax.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RestController
 @RequestMapping("/admin")
 @ControllerAdvice
-public class AdminController {
+public class AdminController  {
 
     @Autowired
     NewsService newsService;
@@ -52,26 +47,26 @@ public class AdminController {
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @DeleteMapping("/delNew")
     public ResponseEntity<?> DelNews(@RequestParam String title) throws AccessDeniedException {
-        if(newsService.deleteNews(title)==1)
-        {
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);}
-        else{
+        if (newsService.deleteNews(title) == 1) {
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-//сначала клиент получает id новости из бд
+
+    //сначала клиент получает id новости из бд
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/editNews")
-    public int getIdNews(@RequestParam String title)
-    {
+    public int getIdNews(@RequestParam String title) throws AccessDeniedException {
 
         return newsService.FindByTitle(title).getId();
     }
+
     //потом отправляет этот id с новыми данными
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PatchMapping("/editNews")
-    public ResponseEntity<?> editNews(@RequestBody @Valid NewsDTO editedNews){
-        newsService.editNews(editedNews);
+    public ResponseEntity<?> editNews(@RequestBody @Valid NewsDTO editedNews) throws AccessDeniedException {
+        if(newsService.editNews(editedNews)==0) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         return ResponseEntity.ok("News updated successfully");
     }
 

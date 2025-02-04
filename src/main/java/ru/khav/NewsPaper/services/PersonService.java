@@ -1,12 +1,12 @@
 package ru.khav.NewsPaper.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.context.Theme;
 import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.models.Preferences;
 import ru.khav.NewsPaper.repositories.PersonRepo;
@@ -43,29 +43,33 @@ public class PersonService implements UserDetailsService {
     }
 
     @Transactional
-    public int savePrefer(String theme_name,Person person,boolean status)
-    {
-        Preferences prefer= new Preferences(themeRepo.findByName(theme_name).get().getId(),
-                person.getId(),status);
-        preferRepo.save(prefer);
-
-        person.getPreferences().add(prefer);
-        themeRepo.findByName(theme_name).get().getPreferences().add(prefer);
-
+    public int savePrefer(String theme_name, boolean status) {
+        Person curUser = findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+        Optional<Preferences> prefer=preferRepo.findByUserIdAndThemeId(curUser.getId(),themeRepo.findByName(theme_name).get().getId());
+        if(prefer.isPresent())
+        {
+            return 1;
+        }else
+        {
+            Preferences pref = new Preferences(status,
+                curUser, themeRepo.findByName(theme_name).get());
+            preferRepo.save(pref);
+            curUser.getPreferences().add(pref);
+            themeRepo.findByName(theme_name).get().getPreferences().add(pref);
+        }
         return 1;
     }
 
     @Transactional
-    public int deletePrefer(String theme_name,Person person,boolean status)
-    {
-        Preferences pdel= preferRepo.findByUserIdAndThemeId(person.getId(),themeRepo.findByName(theme_name).get().getId()).get();
+    public int deletePrefer(String theme_name) {
+        Person curUser = findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+        Preferences pdel = preferRepo.findByUserIdAndThemeId(curUser.getId(), themeRepo.findByName(theme_name).get().getId()).get();
         preferRepo.delete(pdel);
-        person.getPreferences().remove(pdel);
+        curUser.getPreferences().remove(pdel);
         themeRepo.findByName(theme_name).get().getPreferences().remove(pdel);
 
         return 1;
     }
-
 
 
     public Optional<Person> findByEmail(String email) {

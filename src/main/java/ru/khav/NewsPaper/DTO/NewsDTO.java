@@ -21,6 +21,8 @@ public class NewsDTO {
     @NotNull(message = "Full it, please")
     private String text;
 
+    private String imgSource;
+
 
     private Set<String> themes;
 

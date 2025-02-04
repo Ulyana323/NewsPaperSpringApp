@@ -1,6 +1,5 @@
 package ru.khav.NewsPaper.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,20 +42,48 @@ public class Person implements UserDetails {
     private List<Comment> comments;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="role_id" ,referencedColumnName="id")
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
 
     @OneToMany(mappedBy = "personOwnLike", fetch = FetchType.EAGER)
-    private List<Like> likes;
+    private List<Like> likes=new ArrayList<>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<Preferences> preferences= new HashSet<>();
+    private Set<Preferences> preferences = new HashSet<>();
+
+
+
+    public Person(int i, String name, String lastname, String email, String number) {
+    }
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         return Collections.singletonList(new SimpleGrantedAuthority(this.getRole().getRoleName()));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person pers = (Person) o;
+        return pers.id == this.id && pers.email.equals(this.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastname, email);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
     @Override

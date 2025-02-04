@@ -6,10 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "news")
@@ -35,10 +32,12 @@ public class News {
     @Column(name = "updated_up")
     @UpdateTimestamp
     private LocalDateTime updatedUp;
+    @Column(name = "img_source")
+    private String imgSource;
     @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
     private List<Comment> comments;
     @OneToMany(mappedBy = "newsOwnLike", fetch = FetchType.EAGER)
-    private List<Like> likes;
+    private List<Like> likes=new ArrayList<>();
     @ManyToMany(mappedBy = "news")
     private Set<Themes> themes = new HashSet<>();
 
