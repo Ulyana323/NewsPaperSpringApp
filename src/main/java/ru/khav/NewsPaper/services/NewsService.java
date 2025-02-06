@@ -18,7 +18,6 @@ import ru.khav.NewsPaper.models.*;
 import ru.khav.NewsPaper.repositories.NewsRepo;
 import ru.khav.NewsPaper.repositories.PreferRepo;
 import ru.khav.NewsPaper.repositories.ThemeRepo;
-import ru.khav.NewsPaper.utill.NotUniqueEmailException;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -65,7 +64,7 @@ public class NewsService {
                     .limit(3)
                     .collect(Collectors.toList());
         } else {
-            news = newsRepo.findAll(PageRequest.of(page, 3, Sort.by("createdAt").descending())).toList();
+            news = newsRepo.findAll(PageRequest.of(page - 1, 3, Sort.by("createdAt").descending())).toList();
         }
 
         //фильтруем и сортируем новости по тематикам
@@ -81,7 +80,7 @@ public class NewsService {
 
         return news.stream()
                 .map(n -> new NewsShowDTO(n.getTitle(), n.getText(),
-                        CommentListTransform(n.getComments()), likeService.isNewsLikesByCurrUser(user, n), n.getLikes().size(), n.getCreatedAt(), n.getImgSource(),convertListThemes(n.getThemes())))
+                        CommentListTransform(n.getComments()), likeService.isNewsLikesByCurrUser(user, n), n.getLikes().size(), n.getCreatedAt(), n.getImgSource(), convertListThemes(n.getThemes())))
                 .collect(Collectors.toList());
 
 
@@ -100,12 +99,12 @@ public class NewsService {
                     .limit(3)
                     .collect(Collectors.toList());
         } else {
-            news = newsRepo.findAll(PageRequest.of(page, 3, Sort.by("createdAt").descending())).toList();
+            news = newsRepo.findAll(PageRequest.of(page - 1, 3, Sort.by("createdAt").descending())).toList();
         }
 
         return news.stream()
                 .map(n -> new NewsShowDTO(n.getTitle(), n.getText(),
-                        CommentListTransform(n.getComments()), false, n.getLikes().size(), n.getCreatedAt(),n.getImgSource(), convertListThemes(n.getThemes())))
+                        CommentListTransform(n.getComments()), false, n.getLikes().size(), n.getCreatedAt(), n.getImgSource(), convertListThemes(n.getThemes())))
                 .collect(Collectors.toList());
 
     }
@@ -188,7 +187,7 @@ public class NewsService {
     @Transactional
     public int editNews(NewsDTO newsDTO) {
         News oldNews = newsRepo.findById(newsDTO.getId()).get();
-        if (!oldNews.getTitle().equals(newsDTO.getTitle())&&!newsRepo.findByTitle(newsDTO.getTitle()).isPresent()) {
+        if (!oldNews.getTitle().equals(newsDTO.getTitle()) && !newsRepo.findByTitle(newsDTO.getTitle()).isPresent()) {
             oldNews.setTitle(newsDTO.getTitle());
         }
         oldNews.setText(newsDTO.getText());
@@ -223,9 +222,8 @@ public class NewsService {
         }
     }
 
-    public List<String> showAllThemes()
-    {
-        return themeRepo.findAll().stream().map(x->x.getName()).collect(Collectors.toList());
+    public List<String> showAllThemes() {
+        return themeRepo.findAll().stream().map(x -> x.getName()).collect(Collectors.toList());
     }
 
 }

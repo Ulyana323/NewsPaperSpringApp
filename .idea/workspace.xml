@@ -5,43 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f7fe53-9ea5-4091-bd04-94c6a41c6843" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/creating-cast-sequence/creating-sequences.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/load-news-n-themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/themes_n_news_init-data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/add-table-themes-n-news.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-05-changes/add-img-to-news.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-05-changes/add-table-preferencesss.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/LikeRepoCastTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/LikeServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/load-roles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/load-users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/roles-data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/users-data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-userss.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/drop-isliked-news.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/Convertors/NewsConvertor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentShowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/CommentShowDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/Convertors/CommentConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/Convertors/CommentConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonRegistrationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonRegistrationDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/LikeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/LikeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Like.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Preferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Preferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Themes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Themes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeRepoCastImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeRepoCastImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/ThemeSortingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/InitDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/InitDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/InitDataLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/creating-cast-sequence/creating-sequences.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/data/accumulate-init-data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/accumulate-init-data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/data/news-data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/news-data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/accumulate-v-01.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/accumulate-v-01.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-nnews.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-nnews.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/change-user-fields.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/accumulate-v-03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/accumulate-v-03.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/insert-Roles.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/accumulate-v-04.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/accumulate-v-04.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/add-table-theme-n-news.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-05-changes/accumulate-v-05.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-05-changes/accumulate-v-05.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-05-changes/add-table-preferencess.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/AuthorizeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/AuthorizeServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/CommentConvertorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/CommentConvertorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/CommentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/CommentServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/NewsServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/NewsServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/PersonServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/PersonServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/add-table-themess.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/add-table-themess.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/delete-column-isliked-news.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +189,7 @@
       <recent name="D:\JAVA\NewsPaper\src\main\resources\db" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonServiceTest.testDeletePrefer">
+  <component name="RunManager" selected="Spring Boot.NewsPaperApplication">
     <configuration name="PersonServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewsPaper" />
       <extension name="coverage">
@@ -347,6 +352,12 @@
       <workItem from="1738424236354" duration="9365000" />
       <workItem from="1738477600719" duration="4644000" />
       <workItem from="1738561376956" duration="21706000" />
+      <workItem from="1738738042480" duration="180000" />
+      <workItem from="1738738567991" duration="636000" />
+      <workItem from="1738739495830" duration="2416000" />
+      <workItem from="1738742220339" duration="244000" />
+      <workItem from="1738761752722" duration="6120000" />
+      <workItem from="1738823124919" duration="3127000" />
     </task>
     <servers />
   </component>
@@ -397,7 +408,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java</url>
-          <line>87</line>
+          <line>79</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -407,7 +418,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java</url>
-          <line>51</line>
+          <line>45</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -432,28 +443,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeRepoCastImpl.java</url>
-          <line>29</line>
+          <line>30</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java</url>
-          <line>75</line>
+          <line>73</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
-          <line>189</line>
+          <line>188</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
-          <line>108</line>
+          <line>107</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ru/khav/NewsPaper/ServicesTests/PersonServiceTest.java</url>
           <line>92</line>
           <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RegistrationService.java</url>
@@ -466,7 +482,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeService.java</url>
-          <line>42</line>
+          <line>44</line>
           <properties class="ru.khav.NewsPaper.services.LikeService" method="isNewsLikesByCurrUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -475,7 +491,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeService.java</url>
-          <line>29</line>
+          <line>30</line>
           <properties class="ru.khav.NewsPaper.services.LikeService" method="unlike">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -484,7 +500,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeRepoCastImpl.java</url>
-          <line>13</line>
+          <line>15</line>
           <properties class="ru.khav.NewsPaper.services.LikeRepoCastImpl" method="existsLike">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -502,7 +518,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java</url>
-          <line>73</line>
+          <line>72</line>
           <properties class="ru.khav.NewsPaper.controllers.CommentController" method="deleteComment">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -520,7 +536,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java</url>
-          <line>46</line>
+          <line>45</line>
           <properties class="ru.khav.NewsPaper.controllers.CommentController" method="addComment">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -529,7 +545,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
-          <line>158</line>
+          <line>157</line>
           <properties class="ru.khav.NewsPaper.services.NewsService" method="saveNews">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -538,7 +554,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
-          <line>216</line>
+          <line>215</line>
           <properties class="ru.khav.NewsPaper.services.NewsService" method="addNewTheme">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -547,7 +563,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
-          <line>207</line>
+          <line>206</line>
           <properties class="ru.khav.NewsPaper.services.NewsService" method="deleteNews">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -556,7 +572,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
-          <line>43</line>
+          <line>42</line>
           <properties class="ru.khav.NewsPaper.services.NewsService" method="showNewsForAuthrizedUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -574,7 +590,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java</url>
-          <line>38</line>
+          <line>37</line>
           <properties class="ru.khav.NewsPaper.controllers.ConfigureThemesController" method="delPrefer">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -589,6 +605,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
+          <line>88</line>
+          <properties class="ru.khav.NewsPaper.services.NewsService" method="showNews">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

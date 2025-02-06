@@ -5,7 +5,7 @@
 
     <changeSet id="add-table-themes" author="Ulyana">
         <createTable tableName="themes">
-            <column name="id" type="int" autoIncrement="true">
+            <column name="id" type="int" autoIncrement="true" startWith="6">
                 <constraints primaryKey="true"/>
             </column>
             <column name="theme_name" type="varchar(50)">

@@ -3,15 +3,13 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="create-column-lastname" author="Ulyana">
-
-
-        <addColumn tableName="users">
-            <column name="lastname" type="varchar">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
-
-
+    <changeSet id="load-users-from-csv" author="Ulyana">
+        <loadData
+                tableName="users"
+                file="users-data.csv"
+                separator=","
+                relativeToChangelogFile="true"
+                encoding="UTF-8">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

@@ -7,7 +7,6 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.khav.NewsPaper.models.Themes;
 import ru.khav.NewsPaper.services.NewsService;
 import ru.khav.NewsPaper.services.PersonService;
 
@@ -44,6 +43,7 @@ public class ConfigureThemesController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("/addNewTheme")
     public ResponseEntity<?> addNewTheme(@RequestParam String theme_name) throws AccessDeniedException {
@@ -56,8 +56,7 @@ public class ConfigureThemesController {
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/allThemes")
-    public List<String> showAllThemes()
-    {
+    public List<String> showAllThemes() {
         return newsService.showAllThemes();
     }
 

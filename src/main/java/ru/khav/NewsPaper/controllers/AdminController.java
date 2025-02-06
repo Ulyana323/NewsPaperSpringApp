@@ -13,7 +13,6 @@ import ru.khav.NewsPaper.DTO.NewsDTO;
 import ru.khav.NewsPaper.services.NewsService;
 import ru.khav.NewsPaper.utill.ErrorResponse;
 import ru.khav.NewsPaper.utill.NewsValidator;
-import ru.khav.NewsPaper.utill.NotUniqueEmailException;
 
 import javax.validation.Valid;
 
@@ -21,7 +20,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/admin")
 @ControllerAdvice
-public class AdminController  {
+public class AdminController {
 
     @Autowired
     NewsService newsService;
@@ -66,7 +65,7 @@ public class AdminController  {
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PatchMapping("/editNews")
     public ResponseEntity<?> editNews(@RequestBody @Valid NewsDTO editedNews) throws AccessDeniedException {
-        if(newsService.editNews(editedNews)==0) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (newsService.editNews(editedNews) == 0) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         return ResponseEntity.ok("News updated successfully");
     }
 

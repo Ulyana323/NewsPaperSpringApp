@@ -46,11 +46,10 @@ public class Person implements UserDetails {
     private Role role;
 
     @OneToMany(mappedBy = "personOwnLike", fetch = FetchType.EAGER)
-    private List<Like> likes=new ArrayList<>();
+    private List<Like> likes = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Preferences> preferences = new HashSet<>();
-
 
 
     public Person(int i, String name, String lastname, String email, String number) {

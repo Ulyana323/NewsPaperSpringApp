@@ -2,7 +2,6 @@ package ru.khav.NewsPaper.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.khav.NewsPaper.models.Themes;
 
 import javax.validation.constraints.NotNull;
 import java.util.Set;

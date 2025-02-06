@@ -36,7 +36,7 @@ public class Themes {
 
 
     @OneToMany(mappedBy = "theme", fetch = FetchType.EAGER)
-    private Set<Preferences> preferences= new HashSet<>();
+    private Set<Preferences> preferences = new HashSet<>();
 
     public Themes(int i, String theme1) {
     }
@@ -45,8 +45,9 @@ public class Themes {
     public String toString() {
         return "Themes{" +
                 "id=" + id +
-                ", name='" + name ;
+                ", name='" + name;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

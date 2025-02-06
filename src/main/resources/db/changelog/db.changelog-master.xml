@@ -9,5 +9,4 @@
     <include file="v-04-changes/accumulate-v-04.xml" relativeToChangelogFile="true" />
     <include file="data/accumulate-init-data.xml" relativeToChangelogFile="true" />
     <include file="v-05-changes/accumulate-v-05.xml" relativeToChangelogFile="true" />
-    <include file="creating-cast-sequence/creating-sequences.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>

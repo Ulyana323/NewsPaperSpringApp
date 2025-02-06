@@ -2,7 +2,6 @@ package ru.khav.NewsPaper.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.khav.NewsPaper.models.Themes;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,7 +23,7 @@ public class NewsShowDTO {
 
     private LocalDateTime createdAt;
 
-   private String imgSource;
+    private String imgSource;
 
     private Set<String> themes;
 

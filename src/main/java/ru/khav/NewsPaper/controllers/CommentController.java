@@ -2,7 +2,6 @@ package ru.khav.NewsPaper.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -71,9 +70,8 @@ public class CommentController {
 
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @DeleteMapping("/deleteComment")
-    public int deleteComment(@RequestParam String titleNews, @RequestParam int commentId)
-    {
-        return commentService.deleteComment(titleNews,commentId);
+    public int deleteComment(@RequestParam String titleNews, @RequestParam int commentId) {
+        return commentService.deleteComment(titleNews, commentId);
     }
 
     @ExceptionHandler(AccessDeniedException.class)

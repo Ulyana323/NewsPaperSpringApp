@@ -23,25 +23,26 @@ public class LikeService {
 
     @Transactional
     public void like(Person user, News news) {
+        if (isNewsLikesByCurrUser(user, news)) return;
         likeRepo.save(new Like(news, user));
     }
 
     @Transactional
-    public int unlike(String titleNews,String userEmail) {
-        Person curUser=personService.findByEmail(userEmail).get();
-        News curNews=newsRepo.findByTitle(titleNews).get();
-       if(isNewsLikesByCurrUser(curUser,curNews))
-       {
-           Like likeToDel= likeRepo.findById(likeRepoCast.getLikeId(curUser.getId(),curNews.getId())).get();
-           likeRepo.delete(likeToDel);
-           System.out.println("deleted like");
-           return 1;
-       }
-       return 0;
+    public int unlike(String titleNews, String userEmail) {
+        Person curUser = personService.findByEmail(userEmail).get();
+        News curNews = newsRepo.findByTitle(titleNews).get();
+        if (isNewsLikesByCurrUser(curUser, curNews)) {
+            Like likeToDel = likeRepo.findById(likeRepoCast.getLikeId(curUser.getId(), curNews.getId())).get();
+            likeRepo.delete(likeToDel);
+            curNews.getLikes().remove(likeToDel);
+            curUser.getLikes().remove(likeToDel);
+            System.out.println("deleted like");
+            return 1;
+        }
+        return 0;
     }
 
-    public boolean isNewsLikesByCurrUser(Person person,News news)
-    {
-        return likeRepoCast.existsLike(person.getId(),news.getId());
+    public boolean isNewsLikesByCurrUser(Person person, News news) {
+        return likeRepoCast.existsLike(person.getId(), news.getId());
     }
 }

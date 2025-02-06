@@ -3,6 +3,8 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
+    <include file="load-roles.xml" relativeToChangelogFile="true"/>
+    <include file="load-users.xml" relativeToChangelogFile="true"/>
     <include file="load-themes.xml" relativeToChangelogFile="true"/>
     <include file="load-news.xml" relativeToChangelogFile="true"/>
     <include file="load-news-n-themes.xml" relativeToChangelogFile="true"/>

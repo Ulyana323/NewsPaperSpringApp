@@ -21,19 +21,16 @@ public class CommentConverter {
         if (comment == null) {
             return null;
         }
-        return modelMapper.map(comment,CommentShowDTO.class);
+        return modelMapper.map(comment, CommentShowDTO.class);
     }
 
-    public List<CommentShowDTO> convertListToDTO(List<Comment> comments)
-    {
-        if(comments.isEmpty())
-        {
+    public List<CommentShowDTO> convertListToDTO(List<Comment> comments) {
+        if (comments.isEmpty()) {
             return null;
-        }else {
-            List<CommentShowDTO> newComments=new ArrayList<>();
-            for(Comment c:comments)
-            {
-                CommentShowDTO dto=convertToDTO(c);
+        } else {
+            List<CommentShowDTO> newComments = new ArrayList<>();
+            for (Comment c : comments) {
+                CommentShowDTO dto = convertToDTO(c);
                 if (dto != null) {
                     newComments.add(dto);
                 }

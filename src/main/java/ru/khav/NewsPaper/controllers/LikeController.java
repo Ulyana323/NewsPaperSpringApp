@@ -33,8 +33,7 @@ public class LikeController {
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @DeleteMapping("/unlike")
     //метод ожидает заголовок новости (он в бд уникален)
-    public int UnLikeNews(@RequestParam String title,@RequestParam String email) {
-        System.out.println("unlike");
+    public int UnLikeNews(@RequestParam String title, @RequestParam String email) {
         return likeService.unlike(title, email);
     }
 

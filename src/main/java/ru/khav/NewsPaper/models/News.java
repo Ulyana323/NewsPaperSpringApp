@@ -37,7 +37,7 @@ public class News {
     @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
     private List<Comment> comments;
     @OneToMany(mappedBy = "newsOwnLike", fetch = FetchType.EAGER)
-    private List<Like> likes=new ArrayList<>();
+    private List<Like> likes = new ArrayList<>();
     @ManyToMany(mappedBy = "news")
     private Set<Themes> themes = new HashSet<>();
 
@@ -46,7 +46,7 @@ public class News {
         return "News{" +
                 "id=" + id +
                 ", title='" + title +
-                ", text='" + text ;
+                ", text='" + text;
     }
 
     @Override

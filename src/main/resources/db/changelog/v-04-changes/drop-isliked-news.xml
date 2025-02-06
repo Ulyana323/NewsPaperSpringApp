@@ -3,8 +3,8 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <include file="change-type-of-date-news.xml" relativeToChangelogFile="true"/>
-  <include file="add-constraint-title-news.xml" relativeToChangelogFile="true"/>
-
+    <changeSet id="delete-islikeв-news" author="Ulyana">
+        <dropColumn tableName="news" columnName="isliked"/>
+    </changeSet>
 
 </databaseChangeLog>
