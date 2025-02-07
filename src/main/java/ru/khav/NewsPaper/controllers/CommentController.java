@@ -67,6 +67,12 @@ public class CommentController {
         return commentSorting.ShowComments(page, title);
     }
 
+    @GetMapping("/countComm")
+    public Integer ShowComments(@RequestParam String title) {
+        return commentSorting.CountComments(title);
+    }
+
+
 
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @DeleteMapping("/deleteComment")

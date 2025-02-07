@@ -58,6 +58,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/news/showComm").permitAll()
                 .antMatchers("/news/show/**").permitAll()
+                .antMatchers("/news/countComm").permitAll()
                 .antMatchers("/auth/**").permitAll()
                .and()
                 .cors(configurer->{

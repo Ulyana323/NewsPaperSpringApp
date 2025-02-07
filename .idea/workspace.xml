@@ -5,48 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f7fe53-9ea5-4091-bd04-94c6a41c6843" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/load-roles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/load-users.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/roles-data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/users-data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-userss.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/drop-isliked-news.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/Convertors/CommentConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/Convertors/CommentConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/NewsShowDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonRegistrationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonRegistrationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/LikeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/LikeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Like.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/News.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Themes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/models/Themes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeRepoCastImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeRepoCastImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/LikeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/InitDataLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/creating-cast-sequence/creating-sequences.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/data/accumulate-init-data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/accumulate-init-data.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/data/news-data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/data/news-data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/accumulate-v-01.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/accumulate-v-01.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-nnews.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-nnews.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-01-creating/create-table-users.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/accumulate-v-02.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-02-changes/change-user-fields.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/accumulate-v-03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/accumulate-v-03.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-03-new-table/insert-Roles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/accumulate-v-04.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/accumulate-v-04.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/add-table-themess.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/add-table-themess.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-04-changes/delete-column-isliked-news.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/CommentSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/CommentSorting.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,91 +58,91 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JUnit.AuthorizeServiceTest.executor": "Run",
-    "JUnit.AuthorizeServiceTest.testAuthorize_BadCredentials.executor": "Run",
-    "JUnit.AuthorizeServiceTest.testAuthorize_Success.executor": "Run",
-    "JUnit.CommentConvertorTest.testConvertListToDTOValidComments.executor": "Run",
-    "JUnit.CommentConvertorTest.testConvertListToDTO_EmptyList.executor": "Run",
-    "JUnit.CommentConvertorTest.testConvertListToDTO_ValidList.executor": "Run",
-    "JUnit.CommentConvertorTest.testConvertToDTONullComment.executor": "Run",
-    "JUnit.CommentConvertorTest.testConvertToDTOValidComment.executor": "Run",
-    "JUnit.CommentConvertorTest.testConvertToDTO_NullComment.executor": "Run",
-    "JUnit.CommentConvertorTest.testConvertToDTO_ValidComment.executor": "Run",
-    "JUnit.CommentServiceTest.executor": "Run",
-    "JUnit.CommentServiceTest.testAddComment_NewsNotFound.executor": "Run",
-    "JUnit.CommentServiceTest.testAddComment_PersonNotFound.executor": "Run",
-    "JUnit.CommentServiceTest.testAddComment_Success.executor": "Run",
-    "JUnit.CommentServiceTest.testAddComment_UserNotAuthenticated.executor": "Run",
-    "JUnit.LikeRepoCastImplTest.testExistsLike_ReturnsTrue_WhenLikeExists.executor": "Run",
-    "JUnit.LikeRepoCastTest.testExistsLike_ReturnsFalse_WhenLikeDoesNotExist.executor": "Run",
-    "JUnit.LikeRepoCastTest.testExistsLike_ReturnsTrue_WhenLikeExists.executor": "Run",
-    "JUnit.LikeRepoCastTest.testGetLikeId_ReturnsLikeId_WhenLikeExists.executor": "Run",
-    "JUnit.LikeRepoCastTest.testGetLikeId_ReturnsZero_WhenNoResult.executor": "Run",
-    "JUnit.LikeServiceTest.testLike.executor": "Run",
-    "JUnit.LikeServiceTest.testUnlike_WhenLikeExists.executor": "Run",
-    "JUnit.LikeServiceTest.testUnlike_WhenLikeNotExist.executor": "Run",
-    "JUnit.NewsPaperApplicationTests.executor": "Run",
-    "JUnit.NewsServiceTest.CommentListTransformNotEmpty.executor": "Run",
-    "JUnit.NewsServiceTest.CommentListTransormEmptyList.executor": "Run",
-    "JUnit.NewsServiceTest.CommentListTransormNotEmpty.executor": "Run",
-    "JUnit.NewsServiceTest.ShowNewsWithPage0.executor": "Run",
-    "JUnit.NewsServiceTest.ShowNewsWithPageNot0.executor": "Run",
-    "JUnit.NewsServiceTest.executor": "Run",
-    "JUnit.NewsServiceTest.testAddNewTheme.executor": "Run",
-    "JUnit.NewsServiceTest.testAddNewTheme_ThemeExists.executor": "Run",
-    "JUnit.NewsServiceTest.testCommentListTransform.executor": "Run",
-    "JUnit.NewsServiceTest.testConvertListThemes.executor": "Run",
-    "JUnit.NewsServiceTest.testDeleteNews.executor": "Run",
-    "JUnit.NewsServiceTest.testDeleteNews_NewsNotFound.executor": "Run",
-    "JUnit.NewsServiceTest.testEditNews.executor": "Run",
-    "JUnit.NewsServiceTest.testSaveNews.executor": "Run",
-    "JUnit.NewsServiceTest.testShowNews.executor": "Run",
-    "JUnit.NewsServiceTest.testShowNewsAndLikeit.executor": "Run",
-    "JUnit.NewsServiceTest.testShowNewsAndLikeit_NewsNotFound.executor": "Run",
-    "JUnit.NewsServiceTest.testShowNewsForAuthorizedUser.executor": "Run",
-    "JUnit.PersonRegistrationServiceTest.testRegistrSuccess.executor": "Run",
-    "JUnit.PersonRegistrationServiceTest.testRegistr_EmailAlreadyExists.executor": "Run",
-    "JUnit.PersonServiceTest (1).executor": "Run",
-    "JUnit.PersonServiceTest.TestingFindByEmailPersonInMethod.executor": "Run",
-    "JUnit.PersonServiceTest.TestingSaveMethod.executor": "Run",
-    "JUnit.PersonServiceTest.executor": "Run",
-    "JUnit.PersonServiceTest.testDeletePrefer.executor": "Run",
-    "JUnit.PersonServiceTest.testLoadUserByUsername_UserFound.executor": "Run",
-    "JUnit.PersonServiceTest.testSavePerson.executor": "Run",
-    "JUnit.PersonServiceTest.testSavePrefer_NewPreference.executor": "Run",
-    "JUnit.RegistrationServiceTest.executor": "Run",
-    "Maven.NewsPaper [clean].executor": "Run",
-    "Maven.NewsPaper [package].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.NewsPaperApplication.executor": "Run",
-    "database.data.extractors.current.export.id": "Pretty-Groovy.txt.groovy",
-    "database.data.extractors.current.id": "Pretty-Groovy.txt.groovy",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/JAVA/NewsPaper",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.AuthorizeServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthorizeServiceTest.testAuthorize_BadCredentials.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthorizeServiceTest.testAuthorize_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertListToDTOValidComments.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertListToDTO_EmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertListToDTO_ValidList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertToDTONullComment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertToDTOValidComment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertToDTO_NullComment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentConvertorTest.testConvertToDTO_ValidComment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentServiceTest.testAddComment_NewsNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentServiceTest.testAddComment_PersonNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentServiceTest.testAddComment_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentServiceTest.testAddComment_UserNotAuthenticated.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeRepoCastImplTest.testExistsLike_ReturnsTrue_WhenLikeExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeRepoCastTest.testExistsLike_ReturnsFalse_WhenLikeDoesNotExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeRepoCastTest.testExistsLike_ReturnsTrue_WhenLikeExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeRepoCastTest.testGetLikeId_ReturnsLikeId_WhenLikeExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeRepoCastTest.testGetLikeId_ReturnsZero_WhenNoResult.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeServiceTest.testLike.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeServiceTest.testUnlike_WhenLikeExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LikeServiceTest.testUnlike_WhenLikeNotExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsPaperApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.CommentListTransformNotEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.CommentListTransormEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.CommentListTransormNotEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.ShowNewsWithPage0.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.ShowNewsWithPageNot0.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testAddNewTheme.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testAddNewTheme_ThemeExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testCommentListTransform.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testConvertListThemes.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testDeleteNews.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testDeleteNews_NewsNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testEditNews.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testSaveNews.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testShowNews.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testShowNewsAndLikeit.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testShowNewsAndLikeit_NewsNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NewsServiceTest.testShowNewsForAuthorizedUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonRegistrationServiceTest.testRegistrSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonRegistrationServiceTest.testRegistr_EmailAlreadyExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.TestingFindByEmailPersonInMethod.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.TestingSaveMethod.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.testDeletePrefer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.testLoadUserByUsername_UserFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.testSavePerson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonServiceTest.testSavePrefer_NewPreference.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NewsPaper [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NewsPaper [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.NewsPaperApplication.executor&quot;: &quot;Run&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Pretty-Groovy.txt.groovy&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;Pretty-Groovy.txt.groovy&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JAVA/NewsPaper&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JAVA\NewsPaper\src\main\resources\db\changelog\v-03-new-table" />
@@ -357,7 +320,8 @@
       <workItem from="1738739495830" duration="2416000" />
       <workItem from="1738742220339" duration="244000" />
       <workItem from="1738761752722" duration="6120000" />
-      <workItem from="1738823124919" duration="3127000" />
+      <workItem from="1738823124919" duration="5718000" />
+      <workItem from="1738908994197" duration="823000" />
     </task>
     <servers />
   </component>
@@ -448,7 +412,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java</url>
-          <line>73</line>
+          <line>79</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -470,6 +434,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/NewsService.java</url>
           <line>89</line>
           <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/RegistrationService.java</url>
@@ -518,7 +487,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java</url>
-          <line>72</line>
+          <line>78</line>
           <properties class="ru.khav.NewsPaper.controllers.CommentController" method="deleteComment">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -614,6 +583,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/CommentSorting.java</url>
+          <line>23</line>
+          <properties class="ru.khav.NewsPaper.utill.CommentSorting" method="ShowComments">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>
