@@ -12,4 +12,5 @@ public interface PreferRepo extends JpaRepository<Preferences, Integer> {
 
     Optional<List<Preferences>> findByUserId(Integer integer);
     Optional<Preferences> findByUserIdAndThemeId(Integer integer,Integer intege);
+
 }

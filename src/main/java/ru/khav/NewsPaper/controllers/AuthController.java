@@ -14,6 +14,8 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
 import ru.khav.NewsPaper.DTO.PersonRegistrationDTO;
+import ru.khav.NewsPaper.DTO.PersonShowDTO;
+import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.security.JWTUtill;
 import ru.khav.NewsPaper.services.AuthorizeService;
 import ru.khav.NewsPaper.services.RegistrationService;
@@ -71,6 +73,8 @@ public class AuthController {
                 HttpStatus.OK);
     }
 
+
+
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/logout")//при выходе текущий токен польз добавляется в черный список
     public ResponseEntity<HttpStatus> logout(@RequestHeader(value = "Authorization") String authorizationHeader) throws AccessDeniedException {
@@ -81,6 +85,12 @@ public class AuthController {
         SecurityContextHolder.clearContext();
         return new ResponseEntity<>(HttpStatus.OK);
 
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @GetMapping("/getFIO")
+    public ResponseEntity<PersonShowDTO> getFIO() throws AccessDeniedException {
+        return new ResponseEntity<>(authorizeService.showPerson(),HttpStatus.OK);
     }
 
     @ExceptionHandler({NotUniqueEmailException.class, AccessDeniedException.class})

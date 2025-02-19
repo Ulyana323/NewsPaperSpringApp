@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
+import ru.khav.NewsPaper.DTO.PersonShowDTO;
+import ru.khav.NewsPaper.models.Person;
 import ru.khav.NewsPaper.security.JWTUtill;
 
 @Service
@@ -37,4 +39,8 @@ public class AuthorizeService {
     }
 
 
+    public PersonShowDTO showPerson() {
+        Person user = (Person) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return new PersonShowDTO(user.getName(), user.getLastname(), user.getEmail());
+    }
 }

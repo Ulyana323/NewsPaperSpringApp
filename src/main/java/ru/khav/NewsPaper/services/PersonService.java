@@ -13,6 +13,9 @@ import ru.khav.NewsPaper.repositories.PersonRepo;
 import ru.khav.NewsPaper.repositories.PreferRepo;
 import ru.khav.NewsPaper.repositories.ThemeRepo;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -45,14 +48,12 @@ public class PersonService implements UserDetailsService {
     @Transactional
     public int savePrefer(String theme_name, boolean status) {
         Person curUser = findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
-        Optional<Preferences> prefer=preferRepo.findByUserIdAndThemeId(curUser.getId(),themeRepo.findByName(theme_name).get().getId());
-        if(prefer.isPresent())
-        {
+        Optional<Preferences> prefer = preferRepo.findByUserIdAndThemeId(curUser.getId(), themeRepo.findByName(theme_name).get().getId());
+        if (prefer.isPresent()) {
             return 1;
-        }else
-        {
+        } else {
             Preferences pref = new Preferences(status,
-                curUser, themeRepo.findByName(theme_name).get());
+                    curUser, themeRepo.findByName(theme_name).get());
             preferRepo.save(pref);
             curUser.getPreferences().add(pref);
             themeRepo.findByName(theme_name).get().getPreferences().add(pref);
@@ -69,6 +70,18 @@ public class PersonService implements UserDetailsService {
         themeRepo.findByName(theme_name).get().getPreferences().remove(pdel);
 
         return 1;
+    }
+
+    public Map<String, Boolean> showPrefers() {
+        Person curUser = findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+        Map<String, Boolean> prefs = new HashMap<>();
+        List<Preferences> preferences;
+        if (!(preferences = preferRepo.findByUserId(curUser.getId()).get()).isEmpty()) {
+            preferences.stream().forEach(x -> prefs.put(x.getTheme().getName(), x.isStatus()));
+            return prefs;
+        } else {
+            return null;
+        }
     }
 
 

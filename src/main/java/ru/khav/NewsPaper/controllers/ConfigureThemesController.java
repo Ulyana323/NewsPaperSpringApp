@@ -11,6 +11,7 @@ import ru.khav.NewsPaper.services.NewsService;
 import ru.khav.NewsPaper.services.PersonService;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RestController
@@ -54,10 +55,16 @@ public class ConfigureThemesController {
         }
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/allThemes")
     public List<String> showAllThemes() {
         return newsService.showAllThemes();
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @GetMapping("/prefersCurUsr")
+    public Map<String,Boolean> showPrefsByUser() {
+        return personService.showPrefers();
     }
 
 

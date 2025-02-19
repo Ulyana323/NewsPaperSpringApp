@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f7fe53-9ea5-4091-bd04-94c6a41c6843" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4b84cb4-30c6-4abf-a136-1cc9133f2855.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/DTO/PersonShowDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/PreferRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/PreferRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/ThemeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/repositories/ThemeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/AuthorizeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/CommentSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/utill/CommentSorting.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Liquibase Changelog" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -232,12 +236,22 @@
       </method>
     </configuration>
     <configuration name="NewsPaperApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="NewsPaper" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khav.NewsPaper.NewsPaperApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.PersonServiceTest" />
+      <item itemvalue="JUnit.PersonServiceTest.testDeletePrefer" />
+      <item itemvalue="JUnit.PersonServiceTest.testLoadUserByUsername_UserFound" />
+      <item itemvalue="JUnit.PersonServiceTest.testSavePrefer_NewPreference" />
+      <item itemvalue="JUnit.RegistrationServiceTest" />
+      <item itemvalue="Spring Boot.NewsPaperApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.PersonServiceTest.testDeletePrefer" />
@@ -321,7 +335,14 @@
       <workItem from="1738742220339" duration="244000" />
       <workItem from="1738761752722" duration="6120000" />
       <workItem from="1738823124919" duration="5718000" />
-      <workItem from="1738908994197" duration="823000" />
+      <workItem from="1738908994197" duration="1444000" />
+      <workItem from="1738911450711" duration="1297000" />
+      <workItem from="1738916193635" duration="70000" />
+      <workItem from="1738917406548" duration="379000" />
+      <workItem from="1739199233151" duration="1305000" />
+      <workItem from="1739451622042" duration="686000" />
+      <workItem from="1739621698763" duration="215000" />
+      <workItem from="1739950022136" duration="383000" />
     </task>
     <servers />
   </component>
@@ -372,7 +393,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java</url>
-          <line>79</line>
+          <line>83</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -382,7 +403,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/AuthController.java</url>
-          <line>45</line>
+          <line>47</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -559,7 +580,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/controllers/ConfigureThemesController.java</url>
-          <line>37</line>
+          <line>38</line>
           <properties class="ru.khav.NewsPaper.controllers.ConfigureThemesController" method="delPrefer">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -568,7 +589,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/khav/NewsPaper/services/PersonService.java</url>
-          <line>63</line>
+          <line>64</line>
           <properties class="ru.khav.NewsPaper.services.PersonService" method="deletePrefer">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

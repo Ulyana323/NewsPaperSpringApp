@@ -22,7 +22,7 @@ public class CommentSorting extends CommentService {
     }
 
     public List<CommentShowDTO> ShowComments(int page, String title) {
-        if (commentRepo.findAllByNews_Title(title).size() < page * 3) {
+        if (commentRepo.findAllByNews_Title(title).size() - page * 3 <=0) {
             return null;
         }
 

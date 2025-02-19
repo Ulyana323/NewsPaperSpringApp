@@ -9,5 +9,7 @@ import java.util.Optional;
 @Repository
 public interface ThemeRepo extends JpaRepository<Themes, Integer> {
     Optional<Themes> findByName(String string);
+
+
 }
 
