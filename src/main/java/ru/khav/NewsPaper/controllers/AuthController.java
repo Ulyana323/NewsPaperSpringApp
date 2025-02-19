@@ -73,6 +73,13 @@ public class AuthController {
                 HttpStatus.OK);
     }
 
+    //если ответ 1, то админ, если 0, то юзер
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @GetMapping("/who")
+    public int WhoIt()
+    {
+        return authorizeService.IsAdmin();
+    }
 
 
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import ru.khav.NewsPaper.DTO.PersonAuthorizationDTO;
 import ru.khav.NewsPaper.DTO.PersonShowDTO;
 import ru.khav.NewsPaper.models.Person;
+import ru.khav.NewsPaper.models.Role;
 import ru.khav.NewsPaper.security.JWTUtill;
 
 @Service
@@ -32,12 +33,20 @@ public class AuthorizeService {
         try {
             Authentication authentication = authenticationManager.authenticate(authenticationToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);
+
         } catch (BadCredentialsException e) {
             return e.getMessage();
         }
+
         return jwtUtill.generateToken(personAuthorizationDTO.getEmail());
     }
 
+    public int IsAdmin() {
+        Role role = ((Person) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getRole();
+        if (role.getRoleName().equals("ROLE_ADMIN")) {
+            return 1;
+        } else return 0;
+    }
 
     public PersonShowDTO showPerson() {
         Person user = (Person) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

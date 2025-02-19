@@ -160,7 +160,7 @@ public class NewsService {
             News news = new News();
             news.setTitle(newsDTO.getTitle());
             news.setText(newsDTO.getText());
-            news.setImgSource(news.getImgSource());
+            news.setImgSource(newsDTO.getImgSource());
             newsRepo.save(news);
             News savedNews = newsRepo.findByTitle(news.getTitle()).get();
             Set<Themes> themes = new HashSet<>();
