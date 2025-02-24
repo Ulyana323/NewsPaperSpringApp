@@ -41,11 +41,11 @@ public class AuthorizeService {
         return jwtUtill.generateToken(personAuthorizationDTO.getEmail());
     }
 
-    public int IsAdmin() {
+    public boolean IsAdmin() {
         Role role = ((Person) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getRole();
         if (role.getRoleName().equals("ROLE_ADMIN")) {
-            return 1;
-        } else return 0;
+            return true;
+        } else return false;
     }
 
     public PersonShowDTO showPerson() {

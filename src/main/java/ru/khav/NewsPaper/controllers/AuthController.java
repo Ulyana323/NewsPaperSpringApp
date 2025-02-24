@@ -76,7 +76,7 @@ public class AuthController {
     //если ответ 1, то админ, если 0, то юзер
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/who")
-    public int WhoIt()
+    public boolean WhoIt()
     {
         return authorizeService.IsAdmin();
     }

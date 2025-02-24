@@ -3,8 +3,9 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <include file="add-table-preferencesss.xml" relativeToChangelogFile="true"/>
-    <include file="add-img-to-news.xml" relativeToChangelogFile="true"/>
-    <include file="change-type-created_at-comments.xml" relativeToChangelogFile="true"/>
-
+   <changeSet id="change-date-to-timestamp" author="Ulyana">
+       <modifyDataType tableName="comments"
+                       columnName="created_at"
+                       newDataType="timestamp"/>
+   </changeSet>
 </databaseChangeLog>
