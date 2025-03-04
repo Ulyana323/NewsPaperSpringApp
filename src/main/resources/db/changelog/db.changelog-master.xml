@@ -1,0 +1,12 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="v-01-creating/accumulate-v-01.xml" relativeToChangelogFile="true"/>
+   <include file="v-02-changes/accumulate-v-02.xml" relativeToChangelogFile="true"/>
+    <include file="v-03-new-table/accumulate-v-03.xml" relativeToChangelogFile="true" />
+    <include file="v-04-changes/accumulate-v-04.xml" relativeToChangelogFile="true" />
+    <include file="data/accumulate-init-data.xml" relativeToChangelogFile="true" />
+    <include file="v-05-changes/accumulate-v-05.xml" relativeToChangelogFile="true" />
+</databaseChangeLog>

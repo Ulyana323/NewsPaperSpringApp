@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create-table-preferences" author="Ulyana">
+        <createTable tableName="preferences">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="int">
+                <constraints foreignKeyName="user_id_prefer"
+                             referencedTableName="users"
+                             referencedColumnNames="id"
+                             nullable="false"
+                             unique="false"
+                             deleteCascade="true"/>
+            </column>
+            <column name="theme_id" type="int">
+                <constraints unique="false"
+                             nullable="false"
+                             foreignKeyName="theme_id_prefer"
+                             referencedColumnNames="id"
+                             referencedTableName="themes"
+                             deleteCascade="true"/>
+            </column>
+            <column name="prefered_status" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

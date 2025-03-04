@@ -1,0 +1,12 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="add-column-updated-up-news" author="Ulyana">
+        <addColumn tableName="news">
+            <column name="updated_up" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
